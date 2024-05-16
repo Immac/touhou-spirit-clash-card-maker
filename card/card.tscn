@@ -1,0 +1,286 @@
+[gd_scene load_steps=28 format=3 uid="uid://gb0dy00viquq"]
+
+[ext_resource type="Theme" uid="uid://ducyp3k0oad2f" path="res://card/resources/card-theme.tres" id="1_1grwy"]
+[ext_resource type="Script" path="res://card/card.gd" id="1_7hypp"]
+[ext_resource type="Texture2D" uid="uid://gsj1phk2iyel" path="res://assets/cards/background/yellow.png" id="2_lvqhx"]
+[ext_resource type="Theme" uid="uid://c7sqknvomo8q0" path="res://card/resources/title_theme.tres" id="2_yi5x2"]
+[ext_resource type="PackedScene" uid="uid://dm71p6v7oxh3h" path="res://card/stat_display.tscn" id="3_v0e46"]
+[ext_resource type="Texture2D" uid="uid://d2c4s0u5h7trs" path="res://assets/cards/illustration/set-alpha/example-art.png" id="4_vh45k"]
+[ext_resource type="Script" path="res://util/FontRescalingLabel.gd" id="7_7nl53"]
+[ext_resource type="PackedScene" uid="uid://b0bwgsyd4y737" path="res://card/VBoxStatsContainer.tscn" id="8_f57dt"]
+[ext_resource type="Script" path="res://card/RichTextLabel.gd" id="8_xkcvl"]
+[ext_resource type="Resource" uid="uid://c7didcn13xx6x" path="res://database/attributes/combat/defensive/lives.tres" id="9_f1bog"]
+[ext_resource type="Script" path="res://card/resources/base-card/stat.gd" id="11_hktdb"]
+[ext_resource type="Resource" uid="uid://o4qwmider1wo" path="res://database/attributes/combat/defensive/bombs.tres" id="11_tekef"]
+[ext_resource type="FontFile" uid="uid://dbaqxsovebk5u" path="res://card/resources/fonts/Artifika-Regular.ttf" id="12_2mrln"]
+[ext_resource type="PackedScene" uid="uid://cqqaeifofy5io" path="res://card/skill_list.tscn" id="12_50cdm"]
+[ext_resource type="Resource" uid="uid://bi5awffllbnr4" path="res://database/attributes/elements/elements_list.tres" id="14_5pekf"]
+[ext_resource type="Script" path="res://util/KeywordAwareRichTextLabel.gd" id="14_hsq35"]
+[ext_resource type="Resource" uid="uid://bn3ra5p7pavbq" path="res://assets/cards/icons/phases/races_list.tres" id="16_32510"]
+[ext_resource type="Resource" uid="uid://dfc63bf0r8vcy" path="res://database/attributes/rarity/rarity_list.tres" id="16_ifxpv"]
+[ext_resource type="Resource" uid="uid://u0u01lw68t4e" path="res://database/attributes/ui/ui_list.tres" id="17_35eww"]
+[ext_resource type="Resource" uid="uid://mupeg2nnsfvs" path="res://database/attributes/supplies/supply_list.tres" id="18_1f6nx"]
+[ext_resource type="Resource" uid="uid://4g6qb18y8buh" path="res://database/attributes/mechanics/mechanics_list.tres" id="19_ec8db"]
+[ext_resource type="Resource" uid="uid://df5a6mbxd2sh6" path="res://database/attributes/combat/defensive/tenacity_list.tres" id="20_skt2v"]
+[ext_resource type="Resource" uid="uid://bt8shg7rb7bqr" path="res://database/attributes/combat/offensive/offsensive_stats.tres" id="21_kpgqy"]
+
+[sub_resource type="Resource" id="Resource_db5m8"]
+script = ExtResource("11_hktdb")
+attribute = ExtResource("9_f1bog")
+value = "-1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_k5uyq"]
+script = ExtResource("11_hktdb")
+attribute = ExtResource("11_tekef")
+value = "-1"
+order = -1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s83p"]
+bg_color = Color(1, 1, 1, 0.588235)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_detail = 20
+
+[sub_resource type="FontVariation" id="FontVariation_1ogw8"]
+base_font = ExtResource("12_2mrln")
+variation_transform = Transform2D(1, 0.36, 0, 1, 0, 0)
+opentype_features = {
+1801810542: 0
+}
+
+[node name="Card" type="Control"]
+clip_children = 1
+clip_contents = true
+custom_minimum_size = Vector2(825, 1125)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 825.0
+offset_bottom = 1125.0
+pivot_offset = Vector2(411, 561)
+theme = ExtResource("1_1grwy")
+script = ExtResource("1_7hypp")
+
+[node name="Normal" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+offset_right = 825.0
+offset_bottom = 1125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"SafeArea"
+
+[node name="Art" type="TextureRect" parent="Normal"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_1grwy")
+texture = ExtResource("4_vh45k")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextLayer" type="MarginContainer" parent="Normal"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Container" type="VBoxContainer" parent="Normal/TextLayer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/_edit_lock_ = true
+
+[node name="TitleContainer" type="PanelContainer" parent="Normal/TextLayer/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Normal/TextLayer/Container/TitleContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Level" parent="Normal/TextLayer/Container/TitleContainer/HBoxContainer" instance=ExtResource("3_v0e46")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_stretch_ratio = 0.14
+label_size = 28
+
+[node name="NameContaier" type="GridContainer" parent="Normal/TextLayer/Container/TitleContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.72
+
+[node name="CardName" type="Label" parent="Normal/TextLayer/Container/TitleContainer/HBoxContainer/NameContaier"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_1grwy")
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 50
+text = "ABC博麗です"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_7nl53")
+
+[node name="CardTitle" type="Label" parent="Normal/TextLayer/Container/TitleContainer/HBoxContainer/NameContaier"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_1grwy")
+text = "Shrine Maiden of Paradise"
+horizontal_alignment = 1
+script = ExtResource("8_xkcvl")
+base_font_size = 20
+
+[node name="Upkeep" parent="Normal/TextLayer/Container/TitleContainer/HBoxContainer" instance=ExtResource("3_v0e46")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_stretch_ratio = 0.14
+label_size = 28
+
+[node name="Rest" type="VBoxContainer" parent="Normal/TextLayer/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Top3" type="HBoxContainer" parent="Normal/TextLayer/Container/Rest"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="LeftPanel" type="PanelContainer" parent="Normal/TextLayer/Container/Rest/Top3"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SupplyStats" parent="Normal/TextLayer/Container/Rest/Top3/LeftPanel" instance=ExtResource("8_f57dt")]
+unique_name_in_owner = true
+layout_mode = 2
+vertical = true
+stat_rotation = 2
+stats = Array[ExtResource("11_hktdb")]([SubResource("Resource_db5m8")])
+
+[node name="BlankSpace" type="Control" parent="Normal/TextLayer/Container/Rest/Top3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightPanel" type="PanelContainer" parent="Normal/TextLayer/Container/Rest/Top3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="TenacityStats" parent="Normal/TextLayer/Container/Rest/Top3/RightPanel" instance=ExtResource("8_f57dt")]
+unique_name_in_owner = true
+layout_mode = 2
+vertical = true
+stat_rotation = 3
+stats = Array[ExtResource("11_hktdb")]([SubResource("Resource_db5m8"), SubResource("Resource_k5uyq")])
+
+[node name="Flavor Text" type="BoxContainer" parent="Normal/TextLayer/Container/Rest"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="Normal/TextLayer/Container/Rest/Flavor Text"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6s83p")
+
+[node name="MarginContainer" type="MarginContainer" parent="Normal/TextLayer/Container/Rest/Flavor Text/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="Flavor Text" type="RichTextLabel" parent="Normal/TextLayer/Container/Rest/Flavor Text/Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/italics_font = SubResource("FontVariation_1ogw8")
+bbcode_enabled = true
+text = "[i]Once a mere echo in the aether, this entity awaits its true tale. 
+Replace this text with your own lore to breathe life into this card.[/i]"
+fit_content = true
+scroll_active = false
+
+[node name="SkillList" parent="Normal/TextLayer/Container/Rest" instance=ExtResource("12_50cdm")]
+unique_name_in_owner = true
+layout_mode = 2
+skill_icons = Array[Resource("res://card/resources/base-card/attribute_collection.gd")]([ExtResource("14_5pekf"), ExtResource("16_ifxpv"), ExtResource("16_32510"), ExtResource("17_35eww"), ExtResource("18_1f6nx"), ExtResource("19_ec8db"), ExtResource("20_skt2v"), ExtResource("21_kpgqy")])
+
+[node name="BottomRow" type="PanelContainer" parent="Normal/TextLayer/Container/Rest"]
+layout_mode = 2
+
+[node name="BottomStats" type="HBoxContainer" parent="Normal/TextLayer/Container/Rest/BottomRow"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="CombatStats" parent="Normal/TextLayer/Container/Rest/BottomRow/BottomStats" instance=ExtResource("8_f57dt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BlankSpace" type="Control" parent="Normal/TextLayer/Container/Rest/BottomRow/BottomStats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpiritStats" parent="Normal/TextLayer/Container/Rest/BottomRow/BottomStats" instance=ExtResource("8_f57dt")]
+unique_name_in_owner = true
+layout_mode = 2
+stat_rotation = 1
+
+[node name="SetInfo" type="PanelContainer" parent="Normal/TextLayer/Container/Rest"]
+layout_mode = 2
+theme = ExtResource("2_yi5x2")
+
+[node name="SetInfoVBox" type="VBoxContainer" parent="Normal/TextLayer/Container/Rest/SetInfo"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="SetInfoHBox" type="HBoxContainer" parent="Normal/TextLayer/Container/Rest/SetInfo/SetInfoVBox"]
+layout_mode = 2
+theme = ExtResource("2_yi5x2")
+metadata/_edit_lock_ = true
+
+[node name="SetInfoTextContainer" type="VBoxContainer" parent="Normal/TextLayer/Container/Rest/SetInfo/SetInfoVBox/SetInfoHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="SetInfoText" type="RichTextLabel" parent="Normal/TextLayer/Container/Rest/SetInfo/SetInfoVBox/SetInfoHBox/SetInfoTextContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("1_1grwy")
+theme_type_variation = &"Set Info"
+bbcode_enabled = true
+text = "[center]Immac [🤖] | 2024"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("14_hsq35")
+skill_icons = Array[Resource("res://card/resources/base-card/attribute_collection.gd")]([ExtResource("16_ifxpv"), ExtResource("17_35eww")])
+
+[node name="RightSpacer" type="ReferenceRect" parent="Normal/TextLayer/Container/Rest/SetInfo/SetInfoVBox/SetInfoHBox"]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.15
+metadata/_edit_lock_ = true
+
+[node name="BottomSpacer" type="PanelContainer" parent="Normal/TextLayer/Container/Rest/SetInfo/SetInfoVBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Bleed" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 825.0
+offset_bottom = 1125.0
+texture = ExtResource("2_lvqhx")
+stretch_mode = 2
+metadata/_edit_lock_ = true

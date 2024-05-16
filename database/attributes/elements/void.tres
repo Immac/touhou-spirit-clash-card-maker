@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://3q8t08sn7f6i"]
+
+[ext_resource type="Texture2D" uid="uid://cvejs40ibruhq" path="res://assets/cards/icons/elements/void.png" id="1_mf4d3"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_5y6g0"]
+[ext_resource type="Texture2D" uid="uid://1clil12n4fw1" path="res://assets/cards/background/void.png" id="2_s5hog"]
+
+[resource]
+resource_name = "Void"
+script = ExtResource("2_5y6g0")
+key = &"$element_void$"
+name = "Void"
+icon = ExtResource("1_mf4d3")
+order = 0
+metadata/card_border = ExtResource("2_s5hog")

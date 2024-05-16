@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://dqaogbikdip20"]
+
+[ext_resource type="Texture2D" uid="uid://dj8scdt3ann6q" path="res://assets/cards/icons/resources/time.svg" id="1_c7gms"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_goqw7"]
+
+[resource]
+script = ExtResource("2_goqw7")
+key = &"$supply_time$"
+name = "Time"
+icon = ExtResource("1_c7gms")
+order = 9999

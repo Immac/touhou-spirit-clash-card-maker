@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=8 format=3 uid="uid://ive101vg7ae1"]
+
+[ext_resource type="Resource" uid="uid://cfw4ugjgq6fgb" path="res://database/attributes/levels/level_0.tres" id="1_dlbtp"]
+[ext_resource type="Resource" uid="uid://ka1iodk0u5ep" path="res://database/attributes/levels/level_1.tres" id="2_qer4n"]
+[ext_resource type="Resource" uid="uid://631r5niylx68" path="res://database/attributes/levels/level_2.tres" id="3_dkr4k"]
+[ext_resource type="Resource" uid="uid://ieisugtxvdyl" path="res://database/attributes/levels/level_3.tres" id="4_qufvm"]
+[ext_resource type="Resource" uid="uid://bq6fwpg7prx3a" path="res://database/attributes/levels/level_4.tres" id="5_onmbp"]
+[ext_resource type="Resource" uid="uid://b23l11o530n0d" path="res://database/attributes/levels/level_x.tres" id="6_86yhv"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="7_pv4ey"]
+
+[resource]
+resource_name = "Levels"
+script = ExtResource("7_pv4ey")
+items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_dlbtp"), ExtResource("2_qer4n"), ExtResource("3_dkr4k"), ExtResource("4_qufvm"), ExtResource("5_onmbp"), ExtResource("6_86yhv")])

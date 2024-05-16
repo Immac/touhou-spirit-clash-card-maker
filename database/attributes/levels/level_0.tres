@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://cfw4ugjgq6fgb"]
+
+[ext_resource type="Texture2D" uid="uid://bdmt0ydt3vm7x" path="res://assets/cards/icons/misc/stack-0.png" id="1_d1yuu"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_ng3fe"]
+
+[resource]
+resource_name = "Level 0"
+script = ExtResource("2_ng3fe")
+key = &"$level_0$"
+name = "Zero"
+icon = ExtResource("1_d1yuu")
+order = 0

@@ -1,0 +1,626 @@
+[gd_scene load_steps=44 format=3 uid="uid://dmyhaudej7x8w"]
+
+[ext_resource type="PackedScene" uid="uid://doexruhgyiriy" path="res://card/trimmed_card.tscn" id="1_pctpk"]
+[ext_resource type="Script" path="res://tools/card_maker.gd" id="1_qvgku"]
+[ext_resource type="FontFile" uid="uid://b5t65w7rp7yb1" path="res://card/resources/fonts/JetBrainsMono-Regular.ttf" id="1_tbh84"]
+[ext_resource type="FontFile" uid="uid://ic6pp36edjwp" path="res://card/resources/fonts/NotoSansJP-VariableFont_wght.ttf" id="2_yvu4a"]
+[ext_resource type="Texture2D" uid="uid://ciln8eqfxr26w" path="res://assets/cards/icons/misc/no.png" id="3_pxset"]
+[ext_resource type="PackedScene" uid="uid://cfmkcq7hp6r6y" path="res://tools/maker_item_list.tscn" id="6_4wxxa"]
+[ext_resource type="Resource" uid="uid://dfc63bf0r8vcy" path="res://database/attributes/rarity/rarity_list.tres" id="7_nx6sw"]
+[ext_resource type="Resource" uid="uid://c27udd86h0q33" path="res://database/attributes/ui/clear.tres" id="10_t8aph"]
+[ext_resource type="Script" path="res://tools/attribute_item_list.gd" id="13_p7yhj"]
+[ext_resource type="Resource" uid="uid://bi5awffllbnr4" path="res://database/attributes/elements/elements_list.tres" id="16_yg2fy"]
+[ext_resource type="Resource" uid="uid://ive101vg7ae1" path="res://database/attributes/levels/levels.tres" id="17_gvvjb"]
+[ext_resource type="Texture2D" uid="uid://c5p2x0hv5n01r" path="res://assets/creator-symbols/Banner.png" id="18_x51f1"]
+[ext_resource type="Texture2D" uid="uid://pom4mu6mfdqn" path="res://assets/cards/icons/resources/Dice.png" id="19_mev4y"]
+[ext_resource type="Texture2D" uid="uid://dcpj1rh352kt7" path="res://assets/cards/icons/durability/Heart.png" id="21_2n3t3"]
+[ext_resource type="Texture2D" uid="uid://b8ha0br8iu66k" path="res://assets/cards/icons/durability/Star.png" id="22_ojj64"]
+[ext_resource type="PackedScene" uid="uid://dohc1qhyob12f" path="res://tools/maker_skills_editor.tscn" id="22_y4edm"]
+[ext_resource type="Resource" uid="uid://bt8shg7rb7bqr" path="res://database/attributes/combat/offensive/offsensive_stats.tres" id="23_a02gd"]
+[ext_resource type="Texture2D" uid="uid://bcga6hnqvgv34" path="res://assets/cards/icons/combat/Duel Swords.png" id="23_oi0lb"]
+[ext_resource type="Texture2D" uid="uid://bbl1yvtp4mdde" path="res://assets/cards/icons/combat/spread.svg" id="24_ix17r"]
+[ext_resource type="Resource" uid="uid://mupeg2nnsfvs" path="res://database/attributes/supplies/supply_list.tres" id="25_nv5lf"]
+[ext_resource type="Texture2D" uid="uid://daxd05o8giytm" path="res://assets/cards/icons/combat/beam.svg" id="25_u0d5r"]
+[ext_resource type="Texture2D" uid="uid://dgfoj0vd7hgso" path="res://assets/creator-symbols/Letter.png" id="26_h1ckn"]
+[ext_resource type="Texture2D" uid="uid://1da7gpu3mlmi" path="res://assets/cards/icons/combat/lobbed.svg" id="26_sc3x1"]
+[ext_resource type="Texture2D" uid="uid://cyrdgxxwrshqa" path="res://assets/cards/illustration/set-alpha/eternity-larva-0001.png" id="27_5c0vx"]
+[ext_resource type="Resource" uid="uid://df5a6mbxd2sh6" path="res://database/attributes/combat/defensive/tenacity_list.tres" id="28_l4iil"]
+[ext_resource type="Texture2D" uid="uid://b5tj1fssl4bac" path="res://assets/cards/icons/ui/Paste.png" id="28_r3h2h"]
+[ext_resource type="Texture2D" uid="uid://tb6wwqw0u6xe" path="res://assets/cards/icons/ui/Copy.png" id="29_v7y8r"]
+[ext_resource type="Texture2D" uid="uid://3qfrp5bmciwo" path="res://assets/creator-symbols/Magic.png" id="34_a1x7p"]
+[ext_resource type="Texture2D" uid="uid://b823o1poo7xox" path="res://assets/creator-symbols/Card Animation.png" id="34_xuoue"]
+[ext_resource type="Texture2D" uid="uid://8sustbr2byv5" path="res://assets/creator-symbols/Feather.png" id="36_hrvlh"]
+
+[sub_resource type="FontVariation" id="FontVariation_bilqy"]
+fallbacks = Array[Font]([ExtResource("2_yvu4a")])
+base_font = ExtResource("1_tbh84")
+
+[sub_resource type="Theme" id="Theme_5yyns"]
+default_font = SubResource("FontVariation_bilqy")
+AndroidTabContainer/base_type = &"TabContainer"
+AndroidTabContainer/font_sizes/font_size = 32
+
+[sub_resource type="GDScript" id="GDScript_ekx4n"]
+script/source = "extends TabContainer
+
+func _init() -> void:
+	if OS.get_name() == StaticGlobals.OS_NAMES.ANDROID:
+	#ask for android permissions
+		theme_type_variation = \"AndroidTabContainer\"
+		print_debug(\"Hello from init\")
+"
+
+[sub_resource type="InputEventKey" id="InputEventKey_xot2j"]
+command_or_control_autoremap = true
+keycode = 78
+
+[sub_resource type="Shortcut" id="Shortcut_0t44e"]
+events = [SubResource("InputEventKey_xot2j")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_dkav7"]
+command_or_control_autoremap = true
+keycode = 79
+
+[sub_resource type="Shortcut" id="Shortcut_rfkn7"]
+events = [SubResource("InputEventKey_dkav7")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_euu1l"]
+command_or_control_autoremap = true
+keycode = 83
+
+[sub_resource type="Shortcut" id="Shortcut_8onra"]
+events = [SubResource("InputEventKey_euu1l")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_52ly7"]
+device = -1
+ctrl_pressed = true
+keycode = 86
+
+[sub_resource type="Shortcut" id="Shortcut_r2qj4"]
+events = [SubResource("InputEventKey_52ly7")]
+
+[sub_resource type="GDScript" id="GDScript_6n4h0"]
+script/source = "extends Button
+
+func _ready() -> void:
+	if OS.has_feature(\"itch\"):
+		visible = true
+		disabled = false
+
+func _on_pressed() -> void:
+	var result = DisplayServer.clipboard_get()
+	JavaScriptBridge.eval(\"alert('%s')\" % result)
+"
+
+[sub_resource type="GDScript" id="GDScript_scgl6"]
+script/source = "extends Button
+
+func _ready() -> void:
+	if OS.has_feature(\"itch\"):
+		visible = true
+		disabled = false
+
+func _on_pressed() -> void:
+	var js = \"var userInput = prompt('Please enter something:'); userInput;\"
+	var result = JavaScriptBridge.eval(js,true)
+	DisplayServer.clipboard_set(result)
+"
+
+[node name="CardMaker" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_5yyns")
+script = ExtResource("1_qvgku")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CardViewPort" type="SubViewportContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ViewerViewport" type="SubViewport" parent="ScrollContainer/HBoxContainer/CardViewPort"]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(750, 1050)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer/CardViewPort/ViewerViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Viewer" parent="ScrollContainer/HBoxContainer/CardViewPort/ViewerViewport/MarginContainer" instance=ExtResource("1_pctpk")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ViewerCamera" type="Camera2D" parent="ScrollContainer/HBoxContainer/CardViewPort/ViewerViewport"]
+unique_name_in_owner = true
+anchor_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+drag_to_rearrange_enabled = true
+tabs_rearrange_group = 1
+script = SubResource("GDScript_ekx4n")
+
+[node name="Basic Info" type="MarginContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Basic Card Information" type="BoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info"]
+layout_mode = 2
+vertical = true
+
+[node name="HBoxContainer2" type="HFlowContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardNameLabel" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Card Name: "
+
+[node name="CardNameEdit" type="LineEdit" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/HBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../../HBoxContainer2/CardTitleEdit")
+placeholder_text = "Card Name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardTitleLabel" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Card Title:"
+
+[node name="CardTitleEdit" type="LineEdit" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/HBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../../../FlavorTextEdit")
+focus_previous = NodePath("../../HBoxContainer/CardNameEdit")
+placeholder_text = "Card Title"
+
+[node name="FlavorTextLabel" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information"]
+layout_mode = 2
+text = "Flavor Text: "
+
+[node name="FlavorTextEdit" type="LineEdit" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information"]
+unique_name_in_owner = true
+editor_description = "			"
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Once a mere echo in the aether, this entity awaits its true tale. 
+Replace this text with your own lore to breathe life into this card."
+
+[node name="Illustration" type="BoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information"]
+layout_mode = 2
+alignment = 1
+vertical = true
+
+[node name="IllustrationFileDialog" type="FileDialog" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Illustration"]
+unique_name_in_owner = true
+title = "Open a File"
+size = Vector2i(800, 600)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[node name="Illustration" type="TextureRect" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Illustration"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 175)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("27_5c0vx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Upload Buttno" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Illustration"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Upload Illustration"
+
+[node name="Series" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information"]
+layout_mode = 2
+
+[node name="SetLabel" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Series"]
+layout_mode = 2
+text = "Series: "
+
+[node name="SeriesLineEdit" type="LineEdit" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Series"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.2
+placeholder_text = "Series Code"
+
+[node name="SeriesNumberLineEdit" type="SpinBox" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Series"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 999999.0
+custom_arrow_step = 1.0
+
+[node name="Artist" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information"]
+layout_mode = 2
+
+[node name="ArtistLabel" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Artist"]
+layout_mode = 2
+text = "Artist: "
+
+[node name="ArtistEdit" type="LineEdit" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Artist"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Artist's Name"
+
+[node name="IsAiAssited" type="CheckBox" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Artist"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AI Assisted? "
+
+[node name="RarityLabel" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information"]
+layout_mode = 2
+text = "Rarity: "
+
+[node name="RarityList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information" instance=ExtResource("6_4wxxa")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_force_pass_scroll_events = true
+resource_list = ExtResource("7_nx6sw")
+select_first_by_default = true
+
+[node name="Year" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information"]
+layout_mode = 2
+
+[node name="YearLabel" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Year"]
+layout_mode = 2
+text = "Year: "
+
+[node name="YearEdit" type="SpinBox" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Year"]
+unique_name_in_owner = true
+editor_description = "			"
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 2024.0
+max_value = 9999.0
+value = 2024.0
+custom_arrow_step = 1.0
+
+[node name="Attributes" type="MarginContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Container" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes"]
+layout_mode = 2
+
+[node name="MarginContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/MarginContainer"]
+layout_mode = 2
+text = "Element:"
+
+[node name="MainElementItemList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/MarginContainer" instance=ExtResource("6_4wxxa")]
+unique_name_in_owner = true
+layout_mode = 2
+ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+resource_list = ExtResource("16_yg2fy")
+accepted_mouse_buttons = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/VBoxContainer"]
+layout_mode = 2
+text = "Recover Cost:"
+
+[node name="RecoverCostItemList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/VBoxContainer" instance=ExtResource("6_4wxxa")]
+unique_name_in_owner = true
+layout_mode = 2
+resource_list = ExtResource("25_nv5lf")
+accepted_mouse_buttons = 15
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/VBoxContainer2"]
+layout_mode = 2
+text = "Spirit Generation:"
+
+[node name="SpiritGenList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/VBoxContainer2" instance=ExtResource("6_4wxxa")]
+unique_name_in_owner = true
+layout_mode = 2
+ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+resource_list = ExtResource("16_yg2fy")
+accepted_mouse_buttons = 15
+
+[node name="Statistics" type="MarginContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Flow" type="BoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics"]
+layout_mode = 2
+vertical = true
+
+[node name="Card Level" type="BoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+vertical = true
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Card Level"]
+layout_mode = 2
+text = "Level:"
+
+[node name="LevelItemList" type="ItemList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Card Level"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+auto_height = true
+item_count = 2
+max_columns = 0
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(64, 64)
+item_0/text = "Placeholder "
+item_0/icon = ExtResource("18_x51f1")
+item_1/text = "Placeholder 2"
+item_1/icon = ExtResource("18_x51f1")
+script = ExtResource("13_p7yhj")
+resource_list = ExtResource("17_gvvjb")
+
+[node name="Combat" type="BoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow"]
+layout_mode = 2
+vertical = true
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Combat"]
+layout_mode = 2
+text = "Combat:"
+
+[node name="CombatStatsList" type="ItemList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Combat"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+auto_height = true
+text_overrun_behavior = 1
+item_count = 4
+max_columns = 0
+same_column_width = true
+fixed_column_width = 64
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+item_0/text = "Placeholder"
+item_0/icon = ExtResource("23_oi0lb")
+item_1/text = "Placeholder 3"
+item_1/icon = ExtResource("24_ix17r")
+item_2/text = "Placeholder 4"
+item_2/icon = ExtResource("25_u0d5r")
+item_3/text = "Placeholder 5"
+item_3/icon = ExtResource("26_sc3x1")
+script = ExtResource("13_p7yhj")
+ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+resource_list = ExtResource("23_a02gd")
+
+[node name="Support" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Support"]
+layout_mode = 2
+text = "Support:"
+
+[node name="SupportItemList" type="ItemList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Support"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+auto_height = true
+item_count = 1
+max_columns = 0
+same_column_width = true
+fixed_column_width = 64
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+item_0/text = "Placeholder"
+item_0/icon = ExtResource("19_mev4y")
+script = ExtResource("13_p7yhj")
+ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+resource_list = ExtResource("25_nv5lf")
+
+[node name="Tenacity" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow"]
+layout_mode = 2
+
+[node name="AttributeLabel" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Tenacity"]
+layout_mode = 2
+text = "Tenacity: "
+
+[node name="TenacityStatList" type="ItemList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Tenacity"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+auto_height = true
+item_count = 3
+max_columns = 6
+same_column_width = true
+fixed_column_width = 64
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+item_0/text = "None"
+item_0/icon = ExtResource("3_pxset")
+item_1/text = "Lives"
+item_1/icon = ExtResource("21_2n3t3")
+item_2/text = "Spellcards"
+item_2/icon = ExtResource("22_ojj64")
+script = ExtResource("13_p7yhj")
+ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+resource_list = ExtResource("28_l4iil")
+
+[node name="Skills Editor" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("22_y4edm")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+
+[node name="NewCardButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+shortcut = SubResource("Shortcut_0t44e")
+text = "New "
+icon = ExtResource("34_a1x7p")
+alignment = 0
+expand_icon = true
+
+[node name="NewCardConfirmation" type="ConfirmationDialog" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/NewCardButton"]
+unique_name_in_owner = true
+title = "Warning!"
+initial_position = 2
+size = Vector2i(262, 100)
+dialog_text = "Unsaved Card Data will be lost."
+
+[node name="LoadCardButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+shortcut = SubResource("Shortcut_rfkn7")
+text = "Load "
+icon = ExtResource("34_xuoue")
+alignment = 0
+expand_icon = true
+
+[node name="LoadCardDialog" type="FileDialog" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/LoadCardButton"]
+unique_name_in_owner = true
+title = "Open a File"
+size = Vector2i(640, 480)
+ok_button_text = "Open"
+file_mode = 0
+access = 1
+filters = PackedStringArray("*.tres", "*.res")
+
+[node name="SaveCardButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+shortcut = SubResource("Shortcut_8onra")
+text = "Save"
+icon = ExtResource("36_hrvlh")
+alignment = 0
+expand_icon = true
+
+[node name="SaveCardDialog" type="FileDialog" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/SaveCardButton"]
+unique_name_in_owner = true
+size = Vector2i(640, 480)
+access = 1
+root_subfolder = "custom_cards"
+filters = PackedStringArray("*.tres", "*.res")
+
+[node name="ExportCardButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export"
+icon = ExtResource("26_h1ckn")
+expand_icon = true
+
+[node name="ExportFileDialog" type="FileDialog" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/ExportCardButton"]
+unique_name_in_owner = true
+title = "Export a Card"
+initial_position = 1
+size = Vector2i(640, 480)
+access = 2
+filters = PackedStringArray("*.png")
+use_native_dialog = true
+
+[node name="CopyButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+shortcut = SubResource("Shortcut_r2qj4")
+text = "Copy"
+icon = ExtResource("29_v7y8r")
+expand_icon = true
+script = SubResource("GDScript_6n4h0")
+
+[node name="PasteButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+shortcut = SubResource("Shortcut_r2qj4")
+text = "Paste"
+icon = ExtResource("28_r3h2h")
+expand_icon = true
+script = SubResource("GDScript_scgl6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+position_smoothing_enabled = true
+
+[connection signal="text_changed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/HBoxContainer2/HBoxContainer/CardNameEdit" to="." method="_on_card_name_edit_text_changed"]
+[connection signal="text_changed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/HBoxContainer2/HBoxContainer2/CardTitleEdit" to="." method="_on_card_title_edit_text_changed"]
+[connection signal="text_changed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/FlavorTextEdit" to="." method="_on_flavor_text_edit_text_changed"]
+[connection signal="file_selected" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Illustration/IllustrationFileDialog" to="." method="_on_illustration_selected"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Illustration/Upload Buttno" to="." method="_on_upload_button_pressed"]
+[connection signal="text_changed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Series/SeriesLineEdit" to="." method="_on_series_line_edit_text_changed"]
+[connection signal="value_changed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Series/SeriesNumberLineEdit" to="." method="_on_series_number_line_edit_value_changed"]
+[connection signal="text_changed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Artist/ArtistEdit" to="." method="_on_artist_changed"]
+[connection signal="toggled" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Artist/IsAiAssited" to="." method="_on_is_ai_assited_toggled"]
+[connection signal="item_selected" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/RarityList" to="." method="_on_rarity_selected"]
+[connection signal="value_changed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Year/YearEdit" to="." method="_on_year_edit_value_changed"]
+[connection signal="item_clicked" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/MarginContainer/MainElementItemList" to="." method="_on_main_element_list_item_clicked"]
+[connection signal="item_clicked" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/VBoxContainer/RecoverCostItemList" to="." method="_on_upkeep_list_item_clicked"]
+[connection signal="item_clicked" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/VBoxContainer2/SpiritGenList" to="." method="_on_spirit_generation_list_item_clicked"]
+[connection signal="item_selected" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Card Level/LevelItemList" to="." method="_on_level_item_list_item_selected"]
+[connection signal="item_clicked" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Combat/CombatStatsList" to="." method="_on_combat_stats_item_clicked"]
+[connection signal="item_clicked" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Support/SupportItemList" to="." method="_on_support_item_list_item_clicked"]
+[connection signal="item_clicked" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow/Tenacity/TenacityStatList" to="." method="_on_tenacity_stat_list_item_clicked"]
+[connection signal="skill_changed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Skills Editor" to="." method="_on_skills_editor_skill_changed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/NewCardButton" to="." method="_on_new_card_pressed"]
+[connection signal="confirmed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/NewCardButton/NewCardConfirmation" to="." method="_on_new_card_confirmation_confirmed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/LoadCardButton" to="." method="_on_load_card_button_pressed"]
+[connection signal="file_selected" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/LoadCardButton/LoadCardDialog" to="." method="_on_load_card_dialog_file_selected"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/SaveCardButton" to="." method="_on_save_card_pressed"]
+[connection signal="file_selected" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/SaveCardButton/SaveCardDialog" to="." method="_on_save_card_dialog_file_selected"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/ExportCardButton" to="." method="_on_export_card_button_pressed"]
+[connection signal="file_selected" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/ExportCardButton/ExportFileDialog" to="." method="_on_export_file_dialog_file_selected"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/CopyButton" to="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/CopyButton" method="_on_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/PasteButton" to="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/PasteButton" method="_on_pressed"]

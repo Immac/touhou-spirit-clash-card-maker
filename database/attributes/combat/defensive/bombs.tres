@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://o4qwmider1wo"]
+
+[ext_resource type="Texture2D" uid="uid://b8ha0br8iu66k" path="res://assets/cards/icons/durability/Star.png" id="1_h4ero"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_fjbfg"]
+
+[resource]
+resource_name = "Bombs"
+script = ExtResource("2_fjbfg")
+key = &"$combat_bomb$"
+name = "Bombs"
+icon = ExtResource("1_h4ero")
+order = 9999
+metadata/skill_color = Color(0, 0.454902, 0, 1)

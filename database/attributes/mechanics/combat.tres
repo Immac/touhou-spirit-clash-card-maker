@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://dner6u21u38mj"]
+
+[ext_resource type="Texture2D" uid="uid://7q3rxqep5vfc" path="res://assets/cards/icons/phases/combat.png" id="1_4fbau"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_5xlry"]
+
+[resource]
+resource_name = "Combat Phase"
+script = ExtResource("2_5xlry")
+key = &"$phase_combat$"
+name = "Default Attribute"
+icon = ExtResource("1_4fbau")
+order = -1
+metadata/icon_size = 96

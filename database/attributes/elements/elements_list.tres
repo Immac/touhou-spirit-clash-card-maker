@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=13 format=3 uid="uid://bi5awffllbnr4"]
+
+[ext_resource type="Resource" uid="uid://3q8t08sn7f6i" path="res://database/attributes/elements/void.tres" id="1_le42v"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="1_u3dnp"]
+[ext_resource type="Resource" uid="uid://gymobmsyhcie" path="res://database/attributes/elements/solar.tres" id="2_qo1ew"]
+[ext_resource type="Resource" uid="uid://bs85str7tghsj" path="res://database/attributes/elements/lunar.tres" id="3_6d32k"]
+[ext_resource type="Resource" uid="uid://cfnnpaqv2u2rg" path="res://database/attributes/elements/star.tres" id="4_0gl6g"]
+[ext_resource type="Resource" uid="uid://b5oj2up4qccfo" path="res://database/attributes/elements/fire.tres" id="5_ckwjm"]
+[ext_resource type="Resource" uid="uid://bx0j5s21x0mpa" path="res://database/attributes/elements/water.tres" id="6_ofkk5"]
+[ext_resource type="Resource" uid="uid://biyyfoslm00fa" path="res://database/attributes/elements/wind.tres" id="7_25l05"]
+[ext_resource type="Resource" uid="uid://dvmkhbwrul81g" path="res://database/attributes/elements/metal.tres" id="8_x0klp"]
+[ext_resource type="Resource" uid="uid://c34j1ecu85pv4" path="res://database/attributes/elements/wood.tres" id="9_d7rai"]
+[ext_resource type="Resource" uid="uid://b2yytawjoitb6" path="res://database/attributes/elements/earth.tres" id="10_opm25"]
+[ext_resource type="Resource" uid="uid://bu38vekq4gyf4" path="res://database/attributes/elements/electric.tres" id="11_nmyvl"]
+
+[resource]
+resource_name = "Elements"
+script = ExtResource("1_u3dnp")
+items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_le42v"), ExtResource("2_qo1ew"), ExtResource("3_6d32k"), ExtResource("4_0gl6g"), ExtResource("5_ckwjm"), ExtResource("6_ofkk5"), ExtResource("7_25l05"), ExtResource("8_x0klp"), ExtResource("9_d7rai"), ExtResource("10_opm25"), ExtResource("11_nmyvl")])

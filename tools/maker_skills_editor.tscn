@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dohc1qhyob12f"]
+
+[ext_resource type="Script" path="res://tools/maker_skills_editor.gd" id="1_jxwwr"]
+
+[node name="Skills" type="MarginContainer"]
+script = ExtResource("1_jxwwr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="New Skill" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Skill"
+
+[node name="Remove Skill Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Remove Skill"
+
+[node name="Remove Confirmation" type="ConfirmationDialog" parent="MarginContainer/VBoxContainer/VBoxContainer/Remove Skill Button"]
+unique_name_in_owner = true
+size = Vector2i(425, 112)
+dialog_text = "Are you sure you want to remove this skill? 
+This process cannot be undone."
+
+[node name="Nothing to Remove" type="AcceptDialog" parent="MarginContainer/VBoxContainer/VBoxContainer/Remove Skill Button"]
+unique_name_in_owner = true
+dialog_text = "There is nothing else to remove."
+
+[node name="Skills Container" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/New Skill" to="." method="_on_new_skill_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Remove Skill Button" to="." method="_on_remove_skill_button_pressed"]
+[connection signal="confirmed" from="MarginContainer/VBoxContainer/VBoxContainer/Remove Skill Button/Remove Confirmation" to="." method="_on_remove_confirmation_confirmed"]
+[connection signal="tab_selected" from="MarginContainer/VBoxContainer/Skills Container" to="." method="_on_skills_container_tab_selected"]

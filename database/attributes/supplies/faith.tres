@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://7qukctvw2jan"]
+
+[ext_resource type="Texture2D" uid="uid://de0nak7tnd54f" path="res://assets/cards/icons/resources/faith.png" id="1_xbg2h"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_fd1wx"]
+
+[resource]
+script = ExtResource("2_fd1wx")
+key = &"$supply_faith$"
+name = "Faith"
+icon = ExtResource("1_xbg2h")
+order = 9999

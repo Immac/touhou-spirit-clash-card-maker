@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfmkcq7hp6r6y"]
+
+[ext_resource type="Texture2D" uid="uid://ciln8eqfxr26w" path="res://assets/cards/icons/misc/no.png" id="1_nuyau"]
+[ext_resource type="Texture2D" uid="uid://tqmfodfx1r16" path="res://assets/cards/icons/rarity/common.png" id="2_1nwhk"]
+[ext_resource type="Texture2D" uid="uid://bap3wm0oa7vsj" path="res://assets/cards/icons/rarity/uncommon.png" id="3_yg0vf"]
+[ext_resource type="Texture2D" uid="uid://cjui6532yxp0s" path="res://assets/cards/icons/rarity/rare.png" id="4_jjc7e"]
+[ext_resource type="Texture2D" uid="uid://dmtsqyrhildso" path="res://assets/cards/icons/rarity/super-rare.png" id="5_pmxhv"]
+[ext_resource type="Texture2D" uid="uid://bretalqgdcue1" path="res://assets/cards/icons/rarity/unique-rare.png" id="6_m48d5"]
+[ext_resource type="Script" path="res://tools/attribute_item_list.gd" id="7_qdbyy"]
+[ext_resource type="Resource" uid="uid://ive101vg7ae1" path="res://database/attributes/levels/levels.tres" id="8_or5ia"]
+
+[node name="MakerItemList" type="ItemList"]
+editor_description = "		"
+size_flags_horizontal = 3
+mouse_force_pass_scroll_events = false
+auto_height = true
+item_count = 6
+max_columns = 0
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+item_0/text = "None"
+item_0/icon = ExtResource("1_nuyau")
+item_1/text = "Common"
+item_1/icon = ExtResource("2_1nwhk")
+item_2/text = "Uncommon"
+item_2/icon = ExtResource("3_yg0vf")
+item_3/text = "Rare"
+item_3/icon = ExtResource("4_jjc7e")
+item_4/text = "Super Rare"
+item_4/icon = ExtResource("5_pmxhv")
+item_5/text = "Special"
+item_5/icon = ExtResource("6_m48d5")
+script = ExtResource("7_qdbyy")
+resource_list = ExtResource("8_or5ia")
+
+[connection signal="item_clicked" from="." to="." method="_on_item_clicked"]

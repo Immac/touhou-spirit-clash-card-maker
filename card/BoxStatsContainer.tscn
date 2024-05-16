@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://4h2crs6qml86"]
+
+[ext_resource type="Script" path="res://card/BoxStatsContainer.gd" id="1_ieweg"]
+[ext_resource type="PackedScene" uid="uid://dm71p6v7oxh3h" path="res://card/stat_display.tscn" id="2_dj4xr"]
+
+[node name="BoxStatsContainer" type="BoxContainer"]
+script = ExtResource("1_ieweg")
+
+[node name="Container" type="Control" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="SymbolCounter" parent="Container" instance=ExtResource("2_dj4xr")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+rotation = -1.5708
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Container2" type="Control" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="SymbolCounter" parent="Container2" instance=ExtResource("2_dj4xr")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+rotation = -1.5708
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 1
+size_flags_vertical = 1

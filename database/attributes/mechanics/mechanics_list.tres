@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=3 format=3 uid="uid://4g6qb18y8buh"]
+
+[ext_resource type="Resource" uid="uid://dner6u21u38mj" path="res://database/attributes/mechanics/combat.tres" id="1_hrbms"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="1_sckik"]
+
+[resource]
+resource_name = "Mechanics"
+script = ExtResource("1_sckik")
+items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_hrbms")])

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://dvmkhbwrul81g"]
+
+[ext_resource type="Texture2D" uid="uid://fwg6j60tu03x" path="res://assets/cards/icons/elements/metal.png" id="1_47oxw"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_7fh8k"]
+[ext_resource type="Texture2D" uid="uid://sj02w1vtjksj" path="res://assets/cards/background/metal.png" id="2_xwg2t"]
+
+[resource]
+resource_name = "Metal"
+script = ExtResource("2_7fh8k")
+key = &"$element_metal$"
+name = "Metal"
+icon = ExtResource("1_47oxw")
+order = 7
+metadata/card_border = ExtResource("2_xwg2t")

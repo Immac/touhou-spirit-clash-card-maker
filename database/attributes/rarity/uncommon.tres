@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://ltor5jmf7edl"]
+
+[ext_resource type="Texture2D" uid="uid://bap3wm0oa7vsj" path="res://assets/cards/icons/rarity/uncommon.png" id="1_2bqq1"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_b0dgb"]
+
+[resource]
+resource_name = "Uncommon"
+script = ExtResource("2_b0dgb")
+key = &"$rarity_uncommon$"
+name = "Uncommon"
+icon = ExtResource("1_2bqq1")
+order = 9999

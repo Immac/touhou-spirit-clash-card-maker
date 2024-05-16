@@ -1,0 +1,127 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=28 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/cards/illustration/set-alpha/example-art.png" id="1_bsshw"]
+[ext_resource type="Texture2D" path="res://assets/cards/background/solar.png" id="2_jvt7b"]
+[ext_resource type="Resource" path="res://database/attributes/combat/offensive/duel_power.tres" id="3_r25b7"]
+[ext_resource type="Script" path="res://card/resources/base-card/stat.gd" id="4_smbrs"]
+[ext_resource type="Resource" path="res://database/attributes/combat/offensive/homing_shot.tres" id="5_kt0uy"]
+[ext_resource type="Resource" path="res://database/attributes/elements/solar.tres" id="6_kyuvp"]
+[ext_resource type="Resource" path="res://database/attributes/levels/level_1.tres" id="7_d0qge"]
+[ext_resource type="Resource" path="res://database/attributes/rarity/common.tres" id="8_pqwq5"]
+[ext_resource type="Script" path="res://card/resources/base-card/card_data.gd" id="9_u5waf"]
+[ext_resource type="Script" path="res://card/resources/skill.gd" id="10_ial3f"]
+[ext_resource type="Resource" path="res://database/attributes/supplies/faith.tres" id="11_e5bch"]
+[ext_resource type="Resource" path="res://database/attributes/combat/defensive/lives.tres" id="12_hbfiu"]
+[ext_resource type="Resource" path="res://database/attributes/combat/defensive/bombs.tres" id="13_j1ky8"]
+[ext_resource type="Resource" path="res://database/attributes/combat/defensive/defense.tres" id="14_r8lgd"]
+
+[sub_resource type="Resource" id="Resource_3gbjy"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("3_r25b7")
+value = "3"
+order = -1
+metadata/visible = true
+metadata/value_visible = true
+
+[sub_resource type="Resource" id="Resource_heueg"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("5_kt0uy")
+value = "3"
+order = -1
+metadata/visible = true
+metadata/value_visible = true
+
+[sub_resource type="Resource" id="Resource_s3bxi"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("6_kyuvp")
+value = "1"
+order = -1
+metadata/visible = true
+metadata/value_visible = true
+
+[sub_resource type="Resource" id="Resource_jo1tw"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("7_d0qge")
+value = ""
+order = -1
+
+[sub_resource type="Resource" id="Resource_ggv58"]
+script = ExtResource("10_ial3f")
+type = "Trait"
+name = "Reduced Hitbox"
+requirements = "This Unit has protection from $combat_direct_shot$, $combat_spread_shot$ & $combat_piercing_shot$"
+
+[sub_resource type="Resource" id="Resource_tbob5"]
+script = ExtResource("10_ial3f")
+type = "Counter Skill"
+name = "Stunning Seal"
+requirements = "If this Unit is the Target of Combat; You may pay $element_solar$: Stagger the Attacking unit."
+
+[sub_resource type="Resource" id="Resource_cakfg"]
+script = ExtResource("10_ial3f")
+type = "Spellcard"
+name = "Fantasy Seal"
+requirements = "Select and use of these effects:
+1. Target 1 Unit: Deal $combat_direct_shot$x6 to that Unit.
+2. Target 1 Team: Deal $combat_homming_shot$x2 to each member of that Team.
+"
+
+[sub_resource type="Resource" id="Resource_6uww4"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("6_kyuvp")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_400do"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("11_e5bch")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_acvmb"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("12_hbfiu")
+value = "3"
+order = -1
+
+[sub_resource type="Resource" id="Resource_k4hoy"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("13_j1ky8")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_x8nfg"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("14_r8lgd")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_pi23e"]
+script = ExtResource("4_smbrs")
+attribute = ExtResource("11_e5bch")
+value = "1"
+order = -1
+metadata/visible = true
+metadata/value_visible = true
+
+[resource]
+script = ExtResource("9_u5waf")
+element = SubResource("Resource_s3bxi")
+name = "Example Card"
+title = "Example Title"
+background_texture = ExtResource("2_jvt7b")
+upkeep = SubResource("Resource_pi23e")
+art = ExtResource("1_bsshw")
+supply_generation = Array[ExtResource("4_smbrs")]([SubResource("Resource_400do")])
+tenacity_stats = Array[ExtResource("4_smbrs")]([SubResource("Resource_acvmb"), SubResource("Resource_k4hoy"), SubResource("Resource_x8nfg")])
+flavor_text = "Once a mere echo in the aether, this entity awaits its true tale. Replace this text with your own lore to breathe life into this card."
+skills = Array[ExtResource("10_ial3f")]([SubResource("Resource_ggv58"), SubResource("Resource_tbob5"), SubResource("Resource_cakfg")])
+spirit_stats = Array[ExtResource("4_smbrs")]([SubResource("Resource_6uww4")])
+combat_stats = Array[ExtResource("4_smbrs")]([SubResource("Resource_3gbjy"), SubResource("Resource_heueg")])
+level = SubResource("Resource_jo1tw")
+artist = "Immac"
+is_ai_asssited = true
+series_name = "Example"
+card_id_in_series = 1
+year = 2024
+rarity = ExtResource("8_pqwq5")

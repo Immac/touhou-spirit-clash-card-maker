@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://doexruhgyiriy"]
+
+[ext_resource type="PackedScene" uid="uid://gb0dy00viquq" path="res://card/card.tscn" id="1_d1i4c"]
+[ext_resource type="Resource" uid="uid://dvcntajcxwbhj" path="res://database/cards/ALPHA-0004-Nameless-Fairy-Solar.tres" id="2_0xesq"]
+
+[sub_resource type="GDScript" id="GDScript_l8knq"]
+script/source = "extends Control
+@onready var card = $CenterContainer/Card
+
+@export var card_data : Card = preload(\"res://database/cards/ExampleCard.tres\"):
+	set(value):
+		card_data = value
+		if card:
+			card.card_data = card_data
+
+func _ready():
+	_update.call_deferred()
+
+func _update():
+	if card:
+		card.card_data = card_data
+		card.fill_in()
+		card.update.call_deferred()
+
+func take_screenshot(path:String) -> void:
+	await RenderingServer.frame_post_draw
+	var region: Rect2i = get_global_rect()
+	var screenshot: Image = get_viewport().get_texture().get_image()
+	var cropped = Image.create(region.size.x, region.size.y, false, screenshot.get_format())
+	cropped.blit_rect(screenshot, region, Vector2i.ZERO)
+	cropped.save_png(path)
+
+func get_screenshot_path() -> String:
+	var date = Time.get_date_string_from_system().replace(\".\", \"_\")
+	var time : String = Time.get_time_string_from_system().replace(\":\", \"\")
+	return \"user://screenshot_{0}_{1}.png\".format([date,time])
+
+func _input(event:InputEvent):
+	if event.is_action_pressed(\"ui_accept\"):
+		take_screenshot(get_screenshot_path())
+"
+
+[node name="TrimmedCard" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(750, 1050)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 750.0
+offset_bottom = 1050.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = SubResource("GDScript_l8knq")
+card_data = ExtResource("2_0xesq")
+metadata/_edit_group_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -412.5
+offset_top = -562.5
+offset_right = 412.5
+offset_bottom = 562.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" parent="CenterContainer" instance=ExtResource("1_d1i4c")]
+layout_mode = 2

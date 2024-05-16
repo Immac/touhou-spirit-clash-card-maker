@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Touhou TCG Maker"
+config/name_localized={
+"es_HN": "Generador de Cartas de Touhou"
+}
+run/main_scene="res://tools/card_maker.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Initialization="*res://util/Initialization.gd"
+StaticGlobals="*res://util/StaticGlobals.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[dotnet]
+
+project/assembly_name="Touhou TCG"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/FileAccessWeb/plugin.cfg", "res://addons/GodotAndroidSharePlugin/plugin.cfg", "res://addons/simple_card_pile_ui/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "blue",
+"res://database/": "green",
+"res://export/": "red"
+}
+
+[gui]
+
+theme/custom="res://card/resources/card-theme.tres"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=20 format=3 uid="uid://dkxuw6vup4rhn"]
+
+[ext_resource type="Texture2D" uid="uid://cyrdgxxwrshqa" path="res://assets/cards/illustration/set-alpha/eternity-larva-0001.png" id="1_8n0no"]
+[ext_resource type="Texture2D" uid="uid://b6ujtxmtp3fi2" path="res://assets/cards/background/solar.png" id="2_0wryq"]
+[ext_resource type="Resource" uid="uid://gymobmsyhcie" path="res://database/attributes/elements/solar.tres" id="2_yip2r"]
+[ext_resource type="Script" path="res://card/resources/base-card/stat.gd" id="3_ogk1o"]
+[ext_resource type="Resource" uid="uid://cfw4ugjgq6fgb" path="res://database/attributes/levels/level_0.tres" id="5_45y1m"]
+[ext_resource type="Resource" uid="uid://c3bs70q7528ks" path="res://database/attributes/combat/offensive/direct_shot.tres" id="6_o1us5"]
+[ext_resource type="Script" path="res://card/resources/base-card/card_data.gd" id="7_jnfj5"]
+[ext_resource type="Script" path="res://card/resources/skill.gd" id="8_eotay"]
+[ext_resource type="Resource" uid="uid://cnxb154q1c507" path="res://database/attributes/rarity/special.tres" id="8_g3l0k"]
+[ext_resource type="Resource" uid="uid://7qukctvw2jan" path="res://database/attributes/supplies/faith.tres" id="9_8fw27"]
+[ext_resource type="Resource" uid="uid://c7didcn13xx6x" path="res://database/attributes/combat/defensive/lives.tres" id="10_tuxtg"]
+
+[sub_resource type="Resource" id="Resource_eje2k"]
+script = ExtResource("3_ogk1o")
+attribute = ExtResource("5_45y1m")
+value = "E"
+order = -1
+
+[sub_resource type="Resource" id="Resource_2x2v8"]
+script = ExtResource("3_ogk1o")
+attribute = ExtResource("6_o1us5")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_2o416"]
+script = ExtResource("3_ogk1o")
+attribute = ExtResource("2_yip2r")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_cn8sg"]
+script = ExtResource("8_eotay")
+type = "Innate Upkeep"
+name = "Fairy Reincarnation"
+requirements = "If this Unit is in your Netherworld; Pay this Unit's Upkeep: Summon this Unit EXHAUSTED (Exhausted) as a Supporter."
+
+[sub_resource type="Resource" id="Resource_24lbh"]
+script = ExtResource("3_ogk1o")
+attribute = ExtResource("2_yip2r")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_713hu"]
+script = ExtResource("3_ogk1o")
+attribute = ExtResource("9_8fw27")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_0sw51"]
+script = ExtResource("3_ogk1o")
+attribute = ExtResource("10_tuxtg")
+value = "1"
+order = -1
+
+[sub_resource type="Resource" id="Resource_wanbn"]
+script = ExtResource("3_ogk1o")
+attribute = ExtResource("9_8fw27")
+value = "0"
+order = -1
+
+[resource]
+script = ExtResource("7_jnfj5")
+element = SubResource("Resource_2o416")
+name = "Eternity Larva"
+title = "The Butterfly Fairy who Approaches God"
+background_texture = ExtResource("2_0wryq")
+upkeep = SubResource("Resource_wanbn")
+art = ExtResource("1_8n0no")
+supply_generation = Array[ExtResource("3_ogk1o")]([SubResource("Resource_713hu")])
+tenacity_stats = Array[ExtResource("3_ogk1o")]([SubResource("Resource_0sw51")])
+flavor_text = "Her scales, like whispered secrets, scatter in danmaku patterns, painting the air with forgotten hues."
+skills = Array[ExtResource("8_eotay")]([SubResource("Resource_cn8sg")])
+spirit_stats = Array[ExtResource("3_ogk1o")]([SubResource("Resource_24lbh")])
+combat_stats = Array[ExtResource("3_ogk1o")]([SubResource("Resource_eje2k"), SubResource("Resource_2x2v8")])
+artist = "Immac"
+is_ai_asssited = true
+series_name = "Example"
+card_id_in_series = 1
+year = 2024
+rarity = ExtResource("8_g3l0k")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://631r5niylx68"]
+
+[ext_resource type="Texture2D" uid="uid://ctyj0bw8kc0v1" path="res://assets/cards/icons/misc/stack-2.png" id="1_ilrn0"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_7a6oe"]
+
+[resource]
+resource_name = "Level 2"
+script = ExtResource("2_7a6oe")
+key = &"$level_2$"
+name = "Normal"
+icon = ExtResource("1_ilrn0")
+order = 9999

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://b5oj2up4qccfo"]
+
+[ext_resource type="Texture2D" uid="uid://c1cy2x4ei1i41" path="res://assets/cards/icons/elements/fire.png" id="1_a47du"]
+[ext_resource type="Texture2D" uid="uid://lqisbfqk76lv" path="res://assets/cards/background/fire.png" id="2_72yrk"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_go3kt"]
+
+[resource]
+resource_name = "Fire"
+script = ExtResource("2_go3kt")
+key = &"$element_fire$"
+name = "Fire"
+icon = ExtResource("1_a47du")
+order = 4
+metadata/card_border = ExtResource("2_72yrk")

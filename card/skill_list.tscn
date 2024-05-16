@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqqaeifofy5io"]
+
+[ext_resource type="Script" path="res://card/skill_list.gd" id="1_82cv1"]
+[ext_resource type="PackedScene" uid="uid://b76bs7db1xoan" path="res://card/skill_display.tscn" id="1_m01ql"]
+
+[node name="BoxContainer" type="BoxContainer"]
+theme_override_constants/separation = 0
+vertical = true
+script = ExtResource("1_82cv1")
+
+[node name="SkillDisplay2" parent="." instance=ExtResource("1_m01ql")]
+layout_mode = 2

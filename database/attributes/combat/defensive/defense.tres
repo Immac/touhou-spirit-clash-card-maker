@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://b1kjx1nox20mc"]
+
+[ext_resource type="Texture2D" uid="uid://bfxxig2qjydcf" path="res://assets/cards/icons/combat/Shield 2.png" id="1_edhhk"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_2sjwa"]
+
+[resource]
+resource_name = "Block"
+script = ExtResource("2_2sjwa")
+key = &"$combat_block$"
+name = "Block"
+icon = ExtResource("1_edhhk")
+order = 9999

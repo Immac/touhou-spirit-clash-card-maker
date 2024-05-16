@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://b76bs7db1xoan"]
+
+[ext_resource type="Script" path="res://card/skill_display.gd" id="1_5scq8"]
+[ext_resource type="Script" path="res://card/resources/skill.gd" id="2_jfpa2"]
+[ext_resource type="Theme" uid="uid://c7sqknvomo8q0" path="res://card/resources/title_theme.tres" id="3_bvfkn"]
+[ext_resource type="Script" path="res://card/SkillPanel.gd" id="4_fo7be"]
+[ext_resource type="Script" path="res://util/KeywordAwareRichTextLabel.gd" id="6_twe6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qohvk"]
+bg_color = Color(1, 1, 1, 0.588235)
+
+[sub_resource type="Resource" id="Resource_umpl6"]
+script = ExtResource("2_jfpa2")
+type = "Skill Type"
+name = "Skill Name"
+requirements = "If X condition is met; You may pay Y: Z happens. $element_earth"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwugd"]
+bg_color = Color(0, 0, 0, 0.709804)
+
+[node name="SkillContainer" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qohvk")
+script = ExtResource("1_5scq8")
+skill = SubResource("Resource_umpl6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.02
+
+[node name="SkillBox" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_bvfkn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cwugd")
+script = ExtResource("4_fo7be")
+font_size = 22
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/SkillBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="MainLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/SkillBox/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][outline_size=3][outline_color=black][font name=uid://bthfr5rtikrb8 size=28][color=red][img=28]uid://ckqg304x7p5bi[/img] [img=28]uid://bcga6hnqvgv34[/img] Leader Skill:[/color]Tiny Hitbox[/font] 
+[color=white][outline_size=2][left][font name=uid://dbaqxsovebk5u size=28]1/$turn; $faith$faith: Negate damage to this Team once."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("6_twe6s")
+default_icon_size = 36
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/SkillBox/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/SkillBox/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="FlippedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/SkillBox/MarginContainer/Control"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, -1)
+pivot_offset = Vector2(393, 72)
+bbcode_enabled = true
+text = "[center][outline_size=3][outline_color=black][font name=uid://bthfr5rtikrb8 size=28][color=red][img=28]uid://ckqg304x7p5bi[/img] [img=28]uid://bcga6hnqvgv34[/img] Leader Skill:[/color]Tiny Hitbox[/font]
+[color=white][outline_size=2][left][font name=uid://dbaqxsovebk5u size=28]Once per turn, if this unit is the target of an attack, you may pay 1 [img=28]uid://de0nak7tnd54f[/img]; If you do, negate any damage done to this unit as a result of the attack."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("6_twe6s")
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.02

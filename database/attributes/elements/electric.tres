@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://bu38vekq4gyf4"]
+
+[ext_resource type="Texture2D" uid="uid://cfey1ul00ic7x" path="res://assets/cards/icons/elements/electric.png" id="1_p4u7q"]
+[ext_resource type="Texture2D" uid="uid://ugokuxy6eokh" path="res://assets/cards/background/thunder.png" id="2_adw0r"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_sel1u"]
+
+[resource]
+resource_name = "Electric"
+script = ExtResource("2_sel1u")
+key = &"$element_electric$"
+name = "Electricity"
+icon = ExtResource("1_p4u7q")
+order = 10
+metadata/card_border = ExtResource("2_adw0r")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=8 format=3 uid="uid://mupeg2nnsfvs"]
+
+[ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="1_u7p5q"]
+[ext_resource type="Resource" uid="uid://ka7i28qq26o4" path="res://database/attributes/supplies/power.tres" id="1_w3y3j"]
+[ext_resource type="Resource" uid="uid://7qukctvw2jan" path="res://database/attributes/supplies/faith.tres" id="2_yle5v"]
+[ext_resource type="Resource" uid="uid://bgwhk0voi8785" path="res://database/attributes/supplies/knowledge.tres" id="3_udifi"]
+[ext_resource type="Resource" uid="uid://cunifyjlpf8rv" path="res://database/attributes/supplies/money.tres" id="4_npdic"]
+[ext_resource type="Resource" uid="uid://dsem568pac41j" path="res://database/attributes/supplies/luck.tres" id="5_c8xr5"]
+[ext_resource type="Resource" uid="uid://dqaogbikdip20" path="res://database/attributes/supplies/time.tres" id="6_lqa3q"]
+
+[resource]
+resource_name = "Supplies"
+script = ExtResource("1_u7p5q")
+items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_w3y3j"), ExtResource("2_yle5v"), ExtResource("3_udifi"), ExtResource("4_npdic"), ExtResource("5_c8xr5"), ExtResource("6_lqa3q")])

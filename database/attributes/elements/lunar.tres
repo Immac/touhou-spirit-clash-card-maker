@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://bs85str7tghsj"]
+
+[ext_resource type="Texture2D" uid="uid://dtayn4g7lyt23" path="res://assets/cards/icons/elements/moon.png" id="1_lwiyi"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_7lc6c"]
+[ext_resource type="Texture2D" uid="uid://bjieqkfv1mtls" path="res://assets/cards/background/lunar.png" id="2_xxao2"]
+
+[resource]
+resource_name = "Lunar"
+script = ExtResource("2_7lc6c")
+key = &"$element_lunar$"
+name = "Moon"
+icon = ExtResource("1_lwiyi")
+order = 2
+metadata/card_border = ExtResource("2_xxao2")

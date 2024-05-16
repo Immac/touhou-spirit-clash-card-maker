@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://c44mve6bhk5g4"]
+
+[ext_resource type="Texture2D" uid="uid://bntdrwabr3mcy" path="res://assets/cards/icons/ui/Cross.png" id="1_8su01"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_r7x1r"]
+
+[resource]
+resource_name = "No"
+script = ExtResource("2_r7x1r")
+key = &"$ui_no$"
+name = "No"
+icon = ExtResource("1_8su01")
+order = -1

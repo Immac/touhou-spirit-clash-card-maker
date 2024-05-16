@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://cunifyjlpf8rv"]
+
+[ext_resource type="Texture2D" uid="uid://bs0e5iq4jxyi1" path="res://assets/cards/icons/resources/Bag of Money.png" id="1_7i4sk"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_ruaxx"]
+
+[resource]
+script = ExtResource("2_ruaxx")
+key = &"$supply_money$"
+name = "Money"
+icon = ExtResource("1_7i4sk")
+order = 9999

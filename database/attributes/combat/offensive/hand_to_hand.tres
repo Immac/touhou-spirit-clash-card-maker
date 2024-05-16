@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://de7yd4me1dhab"]
+
+[ext_resource type="Texture2D" uid="uid://dg0inthedr3e" path="res://assets/cards/icons/combat/handtohand.png" id="1_2hvgf"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_esagt"]
+
+[resource]
+resource_name = "Hand to Hand"
+script = ExtResource("2_esagt")
+key = &"$combat_hand_to_hand$"
+name = "Unarmed"
+icon = ExtResource("1_2hvgf")
+order = 0

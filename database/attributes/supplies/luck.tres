@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://dsem568pac41j"]
+
+[ext_resource type="Texture2D" uid="uid://pom4mu6mfdqn" path="res://assets/cards/icons/resources/Dice.png" id="1_lweb0"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_ig0vd"]
+
+[resource]
+script = ExtResource("2_ig0vd")
+key = &"$supply_luck$"
+name = "Luck"
+icon = ExtResource("1_lweb0")
+order = 9999

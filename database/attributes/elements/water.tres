@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://bx0j5s21x0mpa"]
+
+[ext_resource type="Texture2D" uid="uid://eqbwrvmmi6x6" path="res://assets/cards/icons/elements/water.png" id="1_ddssa"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_ofujo"]
+[ext_resource type="Texture2D" uid="uid://c0p6uwwh1wuqa" path="res://assets/cards/background/water.png" id="2_s6xfq"]
+
+[resource]
+resource_name = "Water"
+script = ExtResource("2_ofujo")
+key = &"$element_water$"
+name = "Water"
+icon = ExtResource("1_ddssa")
+order = 5
+metadata/card_border = ExtResource("2_s6xfq")

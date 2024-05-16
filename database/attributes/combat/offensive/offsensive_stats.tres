@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=8 format=3 uid="uid://bt8shg7rb7bqr"]
+
+[ext_resource type="Resource" uid="uid://cdbnm524ke8tk" path="res://database/attributes/combat/offensive/duel_power.tres" id="1_s0vr8"]
+[ext_resource type="Resource" uid="uid://de7yd4me1dhab" path="res://database/attributes/combat/offensive/hand_to_hand.tres" id="1_u5vwv"]
+[ext_resource type="Resource" uid="uid://c3bs70q7528ks" path="res://database/attributes/combat/offensive/direct_shot.tres" id="2_jaa38"]
+[ext_resource type="Resource" uid="uid://np8q8mlmc11k" path="res://database/attributes/combat/offensive/spread_shot.tres" id="3_jtppx"]
+[ext_resource type="Resource" uid="uid://behon65ncr3o1" path="res://database/attributes/combat/offensive/piercing_shot.tres" id="4_m4ymi"]
+[ext_resource type="Resource" uid="uid://bthrrgkf67up1" path="res://database/attributes/combat/offensive/homing_shot.tres" id="5_6c7ei"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="6_h4syp"]
+
+[resource]
+resource_name = "Offensive Stats"
+script = ExtResource("6_h4syp")
+items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_u5vwv"), ExtResource("1_s0vr8"), ExtResource("2_jaa38"), ExtResource("3_jtppx"), ExtResource("5_6c7ei"), ExtResource("4_m4ymi")])

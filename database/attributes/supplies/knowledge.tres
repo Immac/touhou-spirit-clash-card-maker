@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://bgwhk0voi8785"]
+
+[ext_resource type="Texture2D" uid="uid://du6jeqwojfdee" path="res://assets/cards/icons/resources/knowledge.svg" id="1_ypql7"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_32ksj"]
+
+[resource]
+script = ExtResource("2_32ksj")
+key = &"$supply_knowledge$"
+name = "Knowledge"
+icon = ExtResource("1_ypql7")
+order = 9999

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://c4gfq6addok0d"]
+
+[ext_resource type="Texture2D" uid="uid://c2m4a3x7pxmme" path="res://assets/cards/icons/ui/Circle.png" id="1_mdo8w"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_vqfxl"]
+
+[resource]
+resource_name = "Yes"
+script = ExtResource("2_vqfxl")
+key = &"$ui_yes$"
+name = "Yes"
+icon = ExtResource("1_mdo8w")
+order = -1

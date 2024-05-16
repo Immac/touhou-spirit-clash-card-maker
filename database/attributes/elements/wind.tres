@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://biyyfoslm00fa"]
+
+[ext_resource type="Texture2D" uid="uid://b8biloy4oh4en" path="res://assets/cards/icons/elements/wind.png" id="1_sp80v"]
+[ext_resource type="Texture2D" uid="uid://qloua04v76y8" path="res://assets/cards/background/wind.png" id="2_a3xsa"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_r8occ"]
+
+[resource]
+resource_name = "Wind"
+script = ExtResource("2_r8occ")
+key = &"$element_wind$"
+name = "Wind"
+icon = ExtResource("1_sp80v")
+order = 6
+metadata/card_border = ExtResource("2_a3xsa")

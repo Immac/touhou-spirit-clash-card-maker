@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c7sqknvomo8q0"]
+
+[ext_resource type="FontFile" uid="uid://1pi8kp5ysnq5" path="res://card/resources/fonts/atomicage-regular.ttf" id="1_h2awb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5rc8"]
+bg_color = Color(1, 1, 1, 0.356863)
+
+[resource]
+default_font = ExtResource("1_h2awb")
+Label/font_sizes/font_size = 42
+Label/fonts/font = ExtResource("1_h2awb")
+Panel/styles/panel = SubResource("StyleBoxFlat_g5rc8")

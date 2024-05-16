@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://dx1f6mgf2ljfs"]
+
+[ext_resource type="Texture2D" uid="uid://ck7ogcmhr3jwr" path="res://assets/creator-symbols/Robot.png" id="1_eaiq7"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_m6set"]
+
+[resource]
+resource_name = "Artist Used Ai"
+script = ExtResource("2_m6set")
+key = &"$art_was_ai_assisted$"
+name = "Ai Assisted"
+icon = ExtResource("1_eaiq7")
+order = -1

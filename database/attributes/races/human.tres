@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://dc2wchhxxxhqj"]
+
+[ext_resource type="Texture2D" uid="uid://cfpoeawob0bgj" path="res://assets/cards/icons/phases/human.png" id="1_d3wnu"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_fnqxr"]
+
+[resource]
+resource_name = "Human"
+script = ExtResource("2_fnqxr")
+key = &"$race_human$"
+name = "Human"
+icon = ExtResource("1_d3wnu")
+order = -1
+metadata/icon_size = 96

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7mf100rfhiy4"]
+
+[ext_resource type="Theme" uid="uid://c7sqknvomo8q0" path="res://card/resources/title_theme.tres" id="1_rs5pd"]
+[ext_resource type="Script" path="res://card/SkillPanel.gd" id="2_1q4dl"]
+[ext_resource type="FontFile" uid="uid://2j3gvjxnbbhb" path="res://card/resources/fonts/Alice-Regular.ttf" id="3_gp5lc"]
+[ext_resource type="Script" path="res://util/KeywordAwareRichTextLabel.gd" id="4_tlhmo"]
+
+[node name="SkillPanel" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 786.0
+offset_bottom = 137.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_rs5pd")
+script = ExtResource("2_1q4dl")
+description_font = ExtResource("3_gp5lc")
+
+[node name="MainLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][outline_size=3][outline_color=black][font name=uid://bthfr5rtikrb8 size=28][color=red][img=28]uid://ckqg304x7p5bi[/img] [img=28]uid://bcga6hnqvgv34[/img] Leader Skill:[/color]Tiny Hitbox[/font] 
+[color=white][outline_size=2][left][font name=uid://dbaqxsovebk5u size=28]1/$turn; $faith$faith: Negate damage to this Team once."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("4_tlhmo")
+
+[node name="HSeparator" type="HSeparator" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="FlippedLabel" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, -1)
+pivot_offset = Vector2(393, 72)
+bbcode_enabled = true
+text = "[center][outline_size=3][outline_color=black][font name=uid://bthfr5rtikrb8 size=28][color=red][img=28]uid://ckqg304x7p5bi[/img] [img=28]uid://bcga6hnqvgv34[/img] Leader Skill:[/color]Tiny Hitbox[/font]
+[color=white][outline_size=2][left][font name=uid://dbaqxsovebk5u size=28]Once per turn, if this unit is the target of an attack, you may pay 1 [img=28]uid://de0nak7tnd54f[/img]; If you do, negate any damage done to this unit as a result of the attack."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("4_tlhmo")

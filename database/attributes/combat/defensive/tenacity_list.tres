@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=5 format=3 uid="uid://df5a6mbxd2sh6"]
+
+[ext_resource type="Resource" uid="uid://c7didcn13xx6x" path="res://database/attributes/combat/defensive/lives.tres" id="1_3x53m"]
+[ext_resource type="Resource" uid="uid://o4qwmider1wo" path="res://database/attributes/combat/defensive/bombs.tres" id="2_8byt6"]
+[ext_resource type="Resource" uid="uid://b1kjx1nox20mc" path="res://database/attributes/combat/defensive/defense.tres" id="3_ibw20"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="3_lxrpl"]
+
+[resource]
+resource_name = "Tenacity Stats"
+script = ExtResource("3_lxrpl")
+items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_3x53m"), ExtResource("2_8byt6"), ExtResource("3_ibw20")])

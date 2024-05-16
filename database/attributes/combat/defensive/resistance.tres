@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://bwpx0m3q55dxn"]
+
+[ext_resource type="Texture2D" uid="uid://cr013etbeejq6" path="res://assets/creator-symbols/Shield.png" id="1_xkuji"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_13ht5"]
+
+[resource]
+resource_name = "Evade"
+script = ExtResource("2_13ht5")
+key = &"$combat_protection$"
+name = "Resistance"
+icon = ExtResource("1_xkuji")
+order = 9999
+
+

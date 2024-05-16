@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://dm71p6v7oxh3h"]
+
+[ext_resource type="Script" path="res://card/stat_display.gd" id="1_a8yqa"]
+[ext_resource type="Texture2D" uid="uid://de0nak7tnd54f" path="res://assets/cards/icons/resources/faith.png" id="2_0nn6s"]
+[ext_resource type="Resource" uid="uid://q3hagv7kqdqm" path="res://database/attributes/misc/default.tres" id="2_362j4"]
+[ext_resource type="Script" path="res://card/resources/base-card/stat.gd" id="2_nd8ck"]
+[ext_resource type="FontFile" uid="uid://bthfr5rtikrb8" path="res://export/fonts/commando.ttf" id="3_naw6p"]
+[ext_resource type="Script" path="res://database/theme/icon_font.gd" id="4_e3d4p"]
+
+[sub_resource type="Resource" id="Resource_jympg"]
+resource_name = "Example Stat"
+script = ExtResource("2_nd8ck")
+attribute = ExtResource("2_362j4")
+value = ""
+order = -9999
+
+[sub_resource type="SystemFont" id="SystemFont_n0b8o"]
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_70eo8"]
+Label/font_sizes/font_size = 145
+Label/fonts/font = SubResource("SystemFont_n0b8o")
+
+[node name="StatDisplay" type="MarginContainer"]
+offset_right = 62.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_a8yqa")
+stat = SubResource("Resource_jympg")
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_0nn6s")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="Value" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_70eo8")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_naw6p")
+theme_override_font_sizes/font_size = 54
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
+script = ExtResource("4_e3d4p")
+label_font = ExtResource("3_naw6p")
+label_size = 54

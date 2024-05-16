@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://t4r5vn6m8fjh"]
+
+[ext_resource type="Script" path="res://tools/maker_skill_item.gd" id="1_nlssc"]
+[ext_resource type="Resource" uid="uid://df5a6mbxd2sh6" path="res://database/attributes/combat/defensive/tenacity_list.tres" id="2_7n21r"]
+[ext_resource type="PackedScene" uid="uid://cfmkcq7hp6r6y" path="res://tools/maker_item_list.tscn" id="2_gq6q2"]
+[ext_resource type="Texture2D" uid="uid://dr7poq0y8l6a1" path="res://assets/cards/icons/ui/Search.png" id="2_no35p"]
+[ext_resource type="Resource" uid="uid://bt8shg7rb7bqr" path="res://database/attributes/combat/offensive/offsensive_stats.tres" id="4_2ferg"]
+[ext_resource type="Resource" uid="uid://bi5awffllbnr4" path="res://database/attributes/elements/elements_list.tres" id="5_0es1a"]
+[ext_resource type="Resource" uid="uid://ive101vg7ae1" path="res://database/attributes/levels/levels.tres" id="6_pxhbv"]
+[ext_resource type="Resource" uid="uid://4g6qb18y8buh" path="res://database/attributes/mechanics/mechanics_list.tres" id="7_twc1a"]
+[ext_resource type="Resource" uid="uid://dfc63bf0r8vcy" path="res://database/attributes/rarity/rarity_list.tres" id="8_nxxcs"]
+[ext_resource type="Resource" uid="uid://mupeg2nnsfvs" path="res://database/attributes/supplies/supply_list.tres" id="9_oqnjc"]
+[ext_resource type="Resource" uid="uid://u0u01lw68t4e" path="res://database/attributes/ui/ui_list.tres" id="10_ga67q"]
+
+[sub_resource type="GDScript" id="GDScript_m1csv"]
+resource_name = "ItemCategories"
+script/source = "extends MenuBar
+
+@export var categories : Array[AttributeCollection] = []
+
+func _ready() -> void:
+	update()
+
+@onready var popup_menu: PopupMenu = $Categories
+func update():
+	for cat in categories:
+		popup_menu.add_item(cat.resource_name)
+		popup_menu.set_item_metadata(-1,cat)
+"
+
+[node name="Skill Name Here" type="VBoxContainer" groups=["Skill Pop Ups"]]
+offset_right = 499.0
+offset_bottom = 444.0
+script = ExtResource("1_nlssc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Icons Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Icons"
+icon = ExtResource("2_no35p")
+expand_icon = true
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Skill Type" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Type:"
+
+[node name="Type Text" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Skill Type"
+
+[node name="Skill Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Name:"
+
+[node name="Name Text" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Skill Name"
+
+[node name="Skill Effect" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Conditions and Effect:"
+
+[node name="Skill Text" type="TextEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+wrap_mode = 1
+
+[node name="PopUp" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Icons"
+size = Vector2i(640, 480)
+exclusive = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopUp"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 380.0
+offset_bottom = 551.0
+
+[node name="Categories" type="MenuBar" parent="PopUp/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+script = SubResource("GDScript_m1csv")
+categories = Array[Resource("res://card/resources/base-card/attribute_collection.gd")]([ExtResource("2_7n21r"), ExtResource("4_2ferg"), ExtResource("5_0es1a"), ExtResource("6_pxhbv"), ExtResource("7_twc1a"), ExtResource("8_nxxcs"), ExtResource("9_oqnjc"), ExtResource("10_ga67q")])
+
+[node name="Categories" type="PopupMenu" parent="PopUp/VBoxContainer/Categories"]
+
+[node name="MakerItemList" parent="PopUp/VBoxContainer" instance=ExtResource("2_gq6q2")]
+unique_name_in_owner = true
+layout_mode = 2
+resource_list = ExtResource("2_7n21r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopUp/VBoxContainer"]
+layout_mode = 2
+
+[node name="Add To Type" type="Button" parent="PopUp/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add to Type"
+
+[node name="Add To Name" type="Button" parent="PopUp/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add to Name"
+
+[node name="Add To Effect" type="Button" parent="PopUp/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add to Effect"
+
+[node name="Nothing Selected" type="AcceptDialog" parent="PopUp"]
+unique_name_in_owner = true
+dialog_text = "Select an icon to insert!"
+
+[connection signal="pressed" from="HBoxContainer/Icons Button" to="." method="_on_icons_button_pressed"]
+[connection signal="index_pressed" from="PopUp/VBoxContainer/Categories/Categories" to="." method="_on_popup_menu_index_pressed"]
+[connection signal="pressed" from="PopUp/VBoxContainer/HBoxContainer/Add To Type" to="." method="_on_add_to_type_pressed"]
+[connection signal="pressed" from="PopUp/VBoxContainer/HBoxContainer/Add To Name" to="." method="_on_add_to_name_pressed"]
+[connection signal="pressed" from="PopUp/VBoxContainer/HBoxContainer/Add To Effect" to="." method="_on_add_to_effect_pressed"]

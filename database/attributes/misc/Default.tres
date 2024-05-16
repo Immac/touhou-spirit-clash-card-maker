@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://q3hagv7kqdqm"]
+
+[ext_resource type="Texture2D" uid="uid://c6aicfcsjc3hs" path="res://assets/cards/misc/empty_image.tres" id="1_pyaek"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="1_vpuot"]
+
+[resource]
+resource_name = "Default Attribute"
+script = ExtResource("1_vpuot")
+key = &"$default_key$"
+name = "Default Attribute"
+icon = ExtResource("1_pyaek")
+order = -1

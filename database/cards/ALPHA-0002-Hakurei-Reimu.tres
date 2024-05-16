@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="Card" load_steps=23 format=3 uid="uid://0dlj5275u5le"]
+
+[ext_resource type="Texture2D" uid="uid://1fubg3xhahcl" path="res://assets/cards/illustration/set-alpha/reimu-2.png" id="1_4xnbf"]
+[ext_resource type="Resource" uid="uid://gymobmsyhcie" path="res://database/attributes/elements/solar.tres" id="2_meaxy"]
+[ext_resource type="Script" path="res://card/resources/base-card/stat.gd" id="3_3f1ly"]
+[ext_resource type="Texture2D" uid="uid://gsj1phk2iyel" path="res://assets/cards/background/yellow.png" id="4_2ynqk"]
+[ext_resource type="Resource" uid="uid://cfw4ugjgq6fgb" path="res://database/attributes/levels/level_0.tres" id="5_d14yb"]
+[ext_resource type="Resource" uid="uid://cdbnm524ke8tk" path="res://database/attributes/combat/offensive/duel_power.tres" id="6_8w380"]
+[ext_resource type="Resource" uid="uid://b1kjx1nox20mc" path="res://database/attributes/combat/defensive/defense.tres" id="7_laxrh"]
+[ext_resource type="Script" path="res://card/resources/base-card/card_data.gd" id="8_s0qal"]
+[ext_resource type="Script" path="res://card/resources/skill.gd" id="9_hakfe"]
+[ext_resource type="Resource" uid="uid://7qukctvw2jan" path="res://database/attributes/supplies/faith.tres" id="10_48roy"]
+[ext_resource type="Resource" uid="uid://c7didcn13xx6x" path="res://database/attributes/combat/defensive/lives.tres" id="11_j0mbi"]
+[ext_resource type="Resource" uid="uid://o4qwmider1wo" path="res://database/attributes/combat/defensive/bombs.tres" id="12_ncms1"]
+
+[sub_resource type="Resource" id="Resource_mjrp6"]
+script = ExtResource("3_3f1ly")
+value = "1"
+attribute = ExtResource("2_meaxy")
+
+[sub_resource type="Resource" id="Resource_rd7jw"]
+script = ExtResource("3_3f1ly")
+value = "E"
+attribute = ExtResource("5_d14yb")
+
+[sub_resource type="Resource" id="Resource_qbnrf"]
+script = ExtResource("3_3f1ly")
+value = "1"
+attribute = ExtResource("6_8w380")
+
+[sub_resource type="Resource" id="Resource_l6gak"]
+script = ExtResource("3_3f1ly")
+value = "2"
+attribute = ExtResource("7_laxrh")
+
+[sub_resource type="Resource" id="Resource_guc24"]
+script = ExtResource("9_hakfe")
+type = "Defense Skill"
+name = "Tiny Hitbox"
+requirements = "1/TURN, during a Clash (Attacker's ATK matches this Unit's DEF) involving this Unit; this Unit does not STAGGERED (Stagger)."
+
+[sub_resource type="Resource" id="Resource_uueea"]
+script = ExtResource("3_3f1ly")
+value = "1"
+attribute = ExtResource("2_meaxy")
+
+[sub_resource type="Resource" id="Resource_imhf5"]
+script = ExtResource("3_3f1ly")
+value = "1"
+attribute = ExtResource("10_48roy")
+
+[sub_resource type="Resource" id="Resource_onxr2"]
+script = ExtResource("3_3f1ly")
+value = "2"
+attribute = ExtResource("11_j0mbi")
+
+[sub_resource type="Resource" id="Resource_pvlk4"]
+script = ExtResource("3_3f1ly")
+value = "1"
+attribute = ExtResource("12_ncms1")
+
+[sub_resource type="Resource" id="Resource_l3dvc"]
+script = ExtResource("3_3f1ly")
+value = "0"
+attribute = ExtResource("10_48roy")
+
+[resource]
+script = ExtResource("8_s0qal")
+attribute = SubResource("Resource_mjrp6")
+name = "Hakurei Reimu"
+title = "Shrine Maiden of Paradise"
+background_texture = ExtResource("4_2ynqk")
+upkeep = SubResource("Resource_l3dvc")
+art = ExtResource("1_4xnbf")
+supply_generation = Array[ExtResource("3_3f1ly")]([SubResource("Resource_imhf5")])
+tenacity_stats = Array[ExtResource("3_3f1ly")]([SubResource("Resource_onxr2"), SubResource("Resource_pvlk4")])
+skills = Array[ExtResource("9_hakfe")]([SubResource("Resource_guc24")])
+spirit_stats = Array[ExtResource("3_3f1ly")]([SubResource("Resource_uueea")])
+combat_stats = Array[ExtResource("3_3f1ly")]([SubResource("Resource_rd7jw"), SubResource("Resource_qbnrf"), SubResource("Resource_l6gak")])
+artist = "ALF-0002 | Stable Diffusion "
+rarity = "Common"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://ka7i28qq26o4"]
+
+[ext_resource type="Texture2D" uid="uid://byjlpni4ar3qk" path="res://assets/cards/icons/resources/power.png" id="1_3ipk0"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_smvgx"]
+
+[resource]
+script = ExtResource("2_smvgx")
+key = &"$supply_power$"
+name = "Power"
+icon = ExtResource("1_3ipk0")
+order = 9999

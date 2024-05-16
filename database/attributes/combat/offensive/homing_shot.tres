@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://bthrrgkf67up1"]
+
+[ext_resource type="Texture2D" uid="uid://1da7gpu3mlmi" path="res://assets/cards/icons/combat/lobbed.svg" id="1_sggey"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_myula"]
+
+[resource]
+resource_name = "Homing Shot"
+script = ExtResource("2_myula")
+key = &"$combat_homming_shot$"
+name = "Homing Shot"
+icon = ExtResource("1_sggey")
+order = 3

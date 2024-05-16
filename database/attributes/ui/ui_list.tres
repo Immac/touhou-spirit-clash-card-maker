@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=7 format=3 uid="uid://u0u01lw68t4e"]
+
+[ext_resource type="Resource" uid="uid://c27udd86h0q33" path="res://database/attributes/ui/clear.tres" id="1_vuo0m"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="1_ydfe3"]
+[ext_resource type="Resource" uid="uid://c4gfq6addok0d" path="res://database/attributes/ui/yes.tres" id="2_3mwdb"]
+[ext_resource type="Resource" uid="uid://c44mve6bhk5g4" path="res://database/attributes/ui/no.tres" id="3_gl3qv"]
+[ext_resource type="Resource" uid="uid://dx1f6mgf2ljfs" path="res://database/attributes/ui/ai_assised.tres" id="4_gv50d"]
+[ext_resource type="Resource" uid="uid://dvbupt62fuc35" path="res://database/attributes/ui/turn.tres" id="5_k6qjr"]
+
+[resource]
+resource_name = "Ui Elements"
+script = ExtResource("1_ydfe3")
+items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_vuo0m"), ExtResource("2_3mwdb"), ExtResource("3_gl3qv"), ExtResource("4_gv50d"), ExtResource("5_k6qjr")])

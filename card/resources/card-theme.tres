@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://ducyp3k0oad2f"]
+
+[ext_resource type="FontFile" uid="uid://1pi8kp5ysnq5" path="res://card/resources/fonts/atomicage-regular.ttf" id="1_hs473"]
+[ext_resource type="FontFile" uid="uid://doe81lh6ey0p2" path="res://card/resources/fonts/ZenAntiqueSoft-Regular.ttf" id="2_rwv3s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_saaar"]
+bg_color = Color(1, 1, 1, 0.156863)
+
+[sub_resource type="FontVariation" id="FontVariation_owgix"]
+fallbacks = Array[Font]([ExtResource("2_rwv3s")])
+base_font = ExtResource("1_hs473")
+
+[resource]
+default_font = SubResource("FontVariation_owgix")
+default_font_size = 18
+Panel/styles/panel = SubResource("StyleBoxFlat_saaar")
+SafeArea/base_type = &"MarginContainer"
+SafeArea/constants/margin_bottom = 75
+SafeArea/constants/margin_left = 75
+SafeArea/constants/margin_right = 75
+SafeArea/constants/margin_top = 75
+TitleLabel/base_type = &"Label"
+TitleLabel/colors/font_color = Color(1, 1, 1, 1)
+TitleLabel/font_sizes/font_size = 48

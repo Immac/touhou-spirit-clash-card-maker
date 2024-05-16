@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://c3bs70q7528ks"]
+
+[ext_resource type="Texture2D" uid="uid://det0iokw5hxxy" path="res://assets/creator-symbols/Fireball.png" id="1_ndtxu"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_xjpu8"]
+
+[resource]
+resource_name = "Direct Shot"
+script = ExtResource("2_xjpu8")
+key = &"$combat_direct_shot$"
+name = "Direct Shot"
+icon = ExtResource("1_ndtxu")
+order = 1

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://gymobmsyhcie"]
+
+[ext_resource type="Texture2D" uid="uid://dftevuqtw1pv1" path="res://assets/cards/icons/elements/solar.png" id="1_gooin"]
+[ext_resource type="Texture2D" uid="uid://b6ujtxmtp3fi2" path="res://assets/cards/background/solar.png" id="2_ifkkd"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_jirhd"]
+
+[resource]
+resource_name = "Solar"
+script = ExtResource("2_jirhd")
+key = &"$element_solar$"
+name = "Sun"
+icon = ExtResource("1_gooin")
+order = 1
+metadata/card_border = ExtResource("2_ifkkd")
+metadata/skill_color = Color(1, 1, 1, 1)

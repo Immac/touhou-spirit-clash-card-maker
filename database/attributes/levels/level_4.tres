@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://bq6fwpg7prx3a"]
+
+[ext_resource type="Texture2D" uid="uid://erwt61buyfi4" path="res://assets/cards/icons/misc/stack-4.png" id="1_ny71x"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_nlhvg"]
+
+[resource]
+resource_name = "Level 4"
+script = ExtResource("2_nlhvg")
+key = &"$level_4$"
+name = "Lunatic"
+icon = ExtResource("1_ny71x")
+order = 9999
