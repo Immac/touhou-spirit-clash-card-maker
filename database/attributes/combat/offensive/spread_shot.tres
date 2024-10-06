@@ -7,6 +7,6 @@
 resource_name = "Spread Shot"
 script = ExtResource("2_duhvr")
 key = &"$combat_spread_shot$"
-name = "Spread Shost"
+name = "Spread Shot"
 icon = ExtResource("1_jxfoo")
 order = 2

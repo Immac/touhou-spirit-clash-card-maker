@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://de0nak7tnd54f" path="res://assets/cards/icons/resources/faith.png" id="2_0nn6s"]
 [ext_resource type="Resource" uid="uid://q3hagv7kqdqm" path="res://database/attributes/misc/default.tres" id="2_362j4"]
 [ext_resource type="Script" path="res://card/resources/base-card/stat.gd" id="2_nd8ck"]
-[ext_resource type="FontFile" uid="uid://bthfr5rtikrb8" path="res://export/fonts/commando.ttf" id="3_naw6p"]
+[ext_resource type="FontFile" uid="uid://bthfr5rtikrb8" path="res://card/resources/fonts/commando.ttf" id="3_naw6p"]
 [ext_resource type="Script" path="res://database/theme/icon_font.gd" id="4_e3d4p"]
 
 [sub_resource type="Resource" id="Resource_jympg"]

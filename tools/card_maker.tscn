@@ -549,7 +549,6 @@ expand_icon = true
 unique_name_in_owner = true
 size = Vector2i(640, 480)
 access = 1
-root_subfolder = "custom_cards"
 filters = PackedStringArray("*.tres", "*.res")
 
 [node name="ExportCardButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]

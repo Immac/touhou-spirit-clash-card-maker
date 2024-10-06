@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=3 format=3 uid="uid://ctxm1npdhe7du"]
+
+[ext_resource type="Texture2D" uid="uid://bsj6l4rujdfam" path="res://assets/cards/icons/combat/dodge.svg" id="1_sj3ty"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="2_gtrum"]
+
+[resource]
+resource_name = "Graze"
+script = ExtResource("2_gtrum")
+key = &"$combat_graze$"
+name = "Graze"
+icon = ExtResource("1_sj3ty")
+order = 1
