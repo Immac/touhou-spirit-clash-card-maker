@@ -140,6 +140,15 @@ func sync_attributes_and_ui() -> void:
 func sync_stats_and_ui() -> void:
 	ui_level_items.select_by_key(card_data.level.key)
 
+	combat_stats.clear()
+	for stat in card_data.combat_stats:
+		combat_stats[stat.key] = stat
+	_tenacity_stats.clear()
+	for stat in card_data.tenacity_stats:
+		_tenacity_stats[stat.key] = stat
+	for stat in card_data.supply_generation:
+		support_items[stat.key] = stat
+
 func schedule_update() -> void:
 	if not update_scheduled:
 		update_scheduled = true
@@ -343,6 +352,8 @@ func _on_combat_stats_item_clicked(index: int, _at_position: Vector2, mouse_butt
 	new_stat.add_int(delta, -1)
 	card_data.combat_stats.assign(combat_stats.values())
 	schedule_update()
+
+
 
 func _on_level_item_list_item_selected(index: int) -> void:
 	var atttribute = ui_level_items.get_item_metadata(index)
