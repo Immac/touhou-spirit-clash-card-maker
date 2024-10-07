@@ -457,4 +457,3 @@ func export_card_web() -> void:
 
 func _on_skills_editor_skill_changed() -> void:
 	schedule_update()
-

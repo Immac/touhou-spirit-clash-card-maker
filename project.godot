@@ -16,7 +16,7 @@ config/name_localized={
 }
 config/version="0.0.1.1"
 run/main_scene="res://tools/card_maker.tscn"
-config/features=PackedStringArray("4.2", "Mobile")
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]

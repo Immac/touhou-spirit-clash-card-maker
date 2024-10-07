@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="AttributeCollection" load_steps=7 format=3 uid="uid://dfc63bf0r8vcy"]
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=8 format=3 uid="uid://dfc63bf0r8vcy"]
 
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="1_588el"]
 [ext_resource type="Resource" uid="uid://47ok0nhmamsj" path="res://database/attributes/rarity/common.tres" id="1_icmee"]
 [ext_resource type="Resource" uid="uid://ltor5jmf7edl" path="res://database/attributes/rarity/uncommon.tres" id="2_3x6tv"]
 [ext_resource type="Resource" uid="uid://c3xrnf2184fix" path="res://database/attributes/rarity/rare.tres" id="3_7y2cq"]
@@ -10,4 +11,4 @@
 [resource]
 resource_name = "Rarities"
 script = ExtResource("6_8t70x")
-items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_icmee"), ExtResource("2_3x6tv"), ExtResource("3_7y2cq"), ExtResource("4_nfemm"), ExtResource("5_ja7s1")])
+items = Array[ExtResource("1_588el")]([ExtResource("1_icmee"), ExtResource("2_3x6tv"), ExtResource("3_7y2cq"), ExtResource("4_nfemm"), ExtResource("5_ja7s1")])
