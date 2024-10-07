@@ -139,7 +139,6 @@ func sync_attributes_and_ui() -> void:
 
 func sync_stats_and_ui() -> void:
 	ui_level_items.select_by_key(card_data.level.key)
-
 	combat_stats.clear()
 	for stat in card_data.combat_stats:
 		combat_stats[stat.key] = stat

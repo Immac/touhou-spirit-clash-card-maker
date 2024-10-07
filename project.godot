@@ -14,6 +14,7 @@ config/name="Touhou TCG Maker"
 config/name_localized={
 "es_HN": "Generador de Cartas de Touhou"
 }
+config/version="0.0.1.1"
 run/main_scene="res://tools/card_maker.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
