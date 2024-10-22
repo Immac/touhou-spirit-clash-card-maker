@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dmyhaudej7x8w"]
+[gd_scene load_steps=45 format=3 uid="uid://dmyhaudej7x8w"]
 
 [ext_resource type="PackedScene" uid="uid://doexruhgyiriy" path="res://card/trimmed_card.tscn" id="1_pctpk"]
 [ext_resource type="Script" path="res://tools/card_maker.gd" id="1_qvgku"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ciln8eqfxr26w" path="res://assets/cards/icons/misc/no.png" id="3_pxset"]
 [ext_resource type="PackedScene" uid="uid://cfmkcq7hp6r6y" path="res://tools/maker_item_list.tscn" id="6_4wxxa"]
 [ext_resource type="Resource" uid="uid://dfc63bf0r8vcy" path="res://database/attributes/rarity/rarity_list.tres" id="7_nx6sw"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="8_yt5wb"]
 [ext_resource type="Resource" uid="uid://c27udd86h0q33" path="res://database/attributes/ui/clear.tres" id="10_t8aph"]
 [ext_resource type="Script" path="res://tools/attribute_item_list.gd" id="13_p7yhj"]
 [ext_resource type="Resource" uid="uid://bi5awffllbnr4" path="res://database/attributes/elements/elements_list.tres" id="16_yg2fy"]
@@ -161,6 +162,7 @@ layout_mode = 2
 [node name="TabContainer" type="TabContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+current_tab = 0
 drag_to_rearrange_enabled = true
 tabs_rearrange_group = 1
 script = SubResource("GDScript_ekx4n")
@@ -171,6 +173,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
+metadata/_tab_index = 0
 
 [node name="Basic Card Information" type="BoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info"]
 layout_mode = 2
@@ -321,6 +324,7 @@ custom_arrow_step = 1.0
 [node name="Attributes" type="MarginContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Container" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes"]
 layout_mode = 2
@@ -335,7 +339,7 @@ text = "Element:"
 [node name="MainElementItemList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/MarginContainer" instance=ExtResource("6_4wxxa")]
 unique_name_in_owner = true
 layout_mode = 2
-ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+ad_hoc_items = Array[ExtResource("8_yt5wb")]([ExtResource("10_t8aph")])
 resource_list = ExtResource("16_yg2fy")
 accepted_mouse_buttons = 7
 
@@ -362,7 +366,7 @@ text = "Spirit Generation:"
 [node name="SpiritGenList" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Attributes/Container/VBoxContainer2" instance=ExtResource("6_4wxxa")]
 unique_name_in_owner = true
 layout_mode = 2
-ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+ad_hoc_items = Array[ExtResource("8_yt5wb")]([ExtResource("10_t8aph")])
 resource_list = ExtResource("16_yg2fy")
 accepted_mouse_buttons = 15
 
@@ -373,6 +377,7 @@ theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
+metadata/_tab_index = 2
 
 [node name="Flow" type="BoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics"]
 layout_mode = 2
@@ -434,7 +439,7 @@ item_2/icon = ExtResource("25_u0d5r")
 item_3/text = "Placeholder 5"
 item_3/icon = ExtResource("26_sc3x1")
 script = ExtResource("13_p7yhj")
-ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+ad_hoc_items = Array[ExtResource("8_yt5wb")]([ExtResource("10_t8aph")])
 resource_list = ExtResource("23_a02gd")
 
 [node name="Support" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow"]
@@ -458,7 +463,7 @@ fixed_icon_size = Vector2i(48, 48)
 item_0/text = "Placeholder"
 item_0/icon = ExtResource("19_mev4y")
 script = ExtResource("13_p7yhj")
-ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+ad_hoc_items = Array[ExtResource("8_yt5wb")]([ExtResource("10_t8aph")])
 resource_list = ExtResource("25_nv5lf")
 
 [node name="Tenacity" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Statistics/Flow"]
@@ -486,13 +491,14 @@ item_1/icon = ExtResource("21_2n3t3")
 item_2/text = "Spellcards"
 item_2/icon = ExtResource("22_ojj64")
 script = ExtResource("13_p7yhj")
-ad_hoc_items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("10_t8aph")])
+ad_hoc_items = Array[ExtResource("8_yt5wb")]([ExtResource("10_t8aph")])
 resource_list = ExtResource("28_l4iil")
 
 [node name="Skills Editor" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("22_y4edm")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="Buttons" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

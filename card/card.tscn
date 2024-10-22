@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://gb0dy00viquq"]
+[gd_scene load_steps=30 format=3 uid="uid://gb0dy00viquq"]
 
 [ext_resource type="Theme" uid="uid://ducyp3k0oad2f" path="res://card/resources/card-theme.tres" id="1_1grwy"]
 [ext_resource type="Script" path="res://card/card.gd" id="1_7hypp"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://o4qwmider1wo" path="res://database/attributes/combat/defensive/bombs.tres" id="11_tekef"]
 [ext_resource type="FontFile" uid="uid://dbaqxsovebk5u" path="res://card/resources/fonts/Artifika-Regular.ttf" id="12_2mrln"]
 [ext_resource type="PackedScene" uid="uid://cqqaeifofy5io" path="res://card/skill_list.tscn" id="12_50cdm"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="13_rjk1o"]
 [ext_resource type="Resource" uid="uid://bi5awffllbnr4" path="res://database/attributes/elements/elements_list.tres" id="14_5pekf"]
 [ext_resource type="Script" path="res://util/KeywordAwareRichTextLabel.gd" id="14_hsq35"]
 [ext_resource type="Resource" uid="uid://bn3ra5p7pavbq" path="res://assets/cards/icons/phases/races_list.tres" id="16_32510"]
@@ -209,7 +210,7 @@ scroll_active = false
 [node name="SkillList" parent="Normal/TextLayer/Container/Rest" instance=ExtResource("12_50cdm")]
 unique_name_in_owner = true
 layout_mode = 2
-skill_icons = Array[Resource("res://card/resources/base-card/attribute_collection.gd")]([ExtResource("14_5pekf"), ExtResource("16_ifxpv"), ExtResource("16_32510"), ExtResource("17_35eww"), ExtResource("18_1f6nx"), ExtResource("19_ec8db"), ExtResource("20_skt2v"), ExtResource("21_kpgqy"), ExtResource("21_sq0hn")])
+skill_icons = Array[ExtResource("13_rjk1o")]([ExtResource("14_5pekf"), ExtResource("16_ifxpv"), ExtResource("16_32510"), ExtResource("17_35eww"), ExtResource("18_1f6nx"), ExtResource("19_ec8db"), ExtResource("20_skt2v"), ExtResource("21_kpgqy"), ExtResource("21_sq0hn")])
 
 [node name="BottomRow" type="PanelContainer" parent="Normal/TextLayer/Container/Rest"]
 layout_mode = 2
@@ -258,13 +259,12 @@ clip_contents = false
 layout_mode = 2
 theme = ExtResource("1_1grwy")
 theme_type_variation = &"Set Info"
-bbcode_enabled = true
 text = "[center]Immac [🤖] | 2024"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 script = ExtResource("14_hsq35")
-skill_icons = Array[Resource("res://card/resources/base-card/attribute_collection.gd")]([ExtResource("16_ifxpv"), ExtResource("17_35eww")])
+skill_icons = Array[ExtResource("13_rjk1o")]([ExtResource("16_ifxpv"), ExtResource("17_35eww")])
 
 [node name="RightSpacer" type="ReferenceRect" parent="Normal/TextLayer/Container/Rest/SetInfo/SetInfoVBox/SetInfoHBox"]
 custom_minimum_size = Vector2(105, 0)

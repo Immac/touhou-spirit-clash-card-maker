@@ -39,12 +39,12 @@ func replace_keyword_with_icon(input: String) -> String:
 	for list in skill_icons:
 		for item in list.items:
 			var options = [
-				["bg_color", item.get_meta("skill_bgcolor", Color.BLACK).to_html(true)],
+				["bg_color", item.get_meta("skill_bgcolor", Color.TRANSPARENT).to_html(true)],
 				["size", item.get_meta("default_icon_size", default_icon_size)],
 				["color", item.get_meta("skill_color", default_image_color).to_html(true)],
 				["path", item.icon.resource_path]
 			]
-			var replacement_text = "[bgcolor={skill_bgcolor}][img width={size} color={color}]{path}[/img][/bgcolor]".format(options)
+			var replacement_text = "[bgcolor={bg_color}][img width={size} color={color}]{path}[/img][/bgcolor]".format(options)
 			output = output.replace(item.key, replacement_text)
 	return output
 

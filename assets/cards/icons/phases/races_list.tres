@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="AttributeCollection" load_steps=3 format=3 uid="uid://bn3ra5p7pavbq"]
+[gd_resource type="Resource" script_class="AttributeCollection" load_steps=4 format=3 uid="uid://bn3ra5p7pavbq"]
 
 [ext_resource type="Script" path="res://card/resources/base-card/attribute_collection.gd" id="1_fok0k"]
 [ext_resource type="Resource" uid="uid://dc2wchhxxxhqj" path="res://database/attributes/races/human.tres" id="1_hjubh"]
+[ext_resource type="Script" path="res://card/resources/base-card/attribute.gd" id="1_l8g14"]
 
 [resource]
 resource_name = "Races"
 script = ExtResource("1_fok0k")
-items = Array[Resource("res://card/resources/base-card/attribute.gd")]([ExtResource("1_hjubh")])
+items = Array[ExtResource("1_l8g14")]([ExtResource("1_hjubh")])
