@@ -184,6 +184,13 @@ func _on_upload_button_pressed() -> void:
 	if OS.get_name() == "Web":
 		file_access_web.open(ACCEPTED_ART_EXTENSIONS)
 		file_access_web.loaded.connect(_on_file_loaded)
+	elif OS.get_name() == StaticGlobals.OS_NAMES.ANDROID:
+		var has_permission:bool
+		has_permission = OS.request_permission("android.permission.READ_EXTERNAL_STORAGE")
+		if not has_permission:
+			OS.alert("The app can't access yout images without the 'Files and Media' permission.")
+		else:
+			ui_load_illustration_file_dialog.popup_centered()
 	else:
 		ui_load_illustration_file_dialog.popup_centered()
 

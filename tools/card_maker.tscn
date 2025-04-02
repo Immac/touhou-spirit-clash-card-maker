@@ -233,10 +233,12 @@ vertical = true
 [node name="IllustrationFileDialog" type="FileDialog" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Illustration"]
 unique_name_in_owner = true
 title = "Open a File"
-size = Vector2i(800, 600)
+initial_position = 1
+size = Vector2i(1280, 720)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
+filters = PackedStringArray("*.png", "*.jpg", "*.jpeg", "*.jxl", "*.webp", "*.bmp")
 use_native_dialog = true
 
 [node name="Illustration" type="TextureRect" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/TabContainer/Basic Info/Basic Card Information/Illustration"]
