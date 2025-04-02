@@ -419,7 +419,7 @@ func _on_tenacity_stat_list_item_clicked(index: int, _at_position: Vector2, mous
 func _on_export_card_button_pressed() -> void:
 	if OS.get_name() == OS_WEB:
 		export_card_web()
-	if OS.get_name() == StaticGlobals.OS_NAMES.ANDROID:
+	elif OS.get_name() == StaticGlobals.OS_NAMES.ANDROID:
 		export_card_android()
 	else:
 		ui_export_file_dialog.current_dir = OS.get_user_data_dir()

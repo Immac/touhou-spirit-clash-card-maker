@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dmyhaudej7x8w"]
+[gd_scene load_steps=39 format=3 uid="uid://dmyhaudej7x8w"]
 
 [ext_resource type="PackedScene" uid="uid://doexruhgyiriy" path="res://card/trimmed_card.tscn" id="1_pctpk"]
 [ext_resource type="Script" path="res://tools/card_maker.gd" id="1_qvgku"]
@@ -26,8 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://1da7gpu3mlmi" path="res://assets/cards/icons/combat/lobbed.svg" id="26_sc3x1"]
 [ext_resource type="Texture2D" uid="uid://cyrdgxxwrshqa" path="res://assets/cards/illustration/set-alpha/eternity-larva-0001.png" id="27_5c0vx"]
 [ext_resource type="Resource" uid="uid://df5a6mbxd2sh6" path="res://database/attributes/combat/defensive/tenacity_list.tres" id="28_l4iil"]
-[ext_resource type="Texture2D" uid="uid://b5tj1fssl4bac" path="res://assets/cards/icons/ui/Paste.png" id="28_r3h2h"]
-[ext_resource type="Texture2D" uid="uid://tb6wwqw0u6xe" path="res://assets/cards/icons/ui/Copy.png" id="29_v7y8r"]
 [ext_resource type="Texture2D" uid="uid://3qfrp5bmciwo" path="res://assets/creator-symbols/Magic.png" id="34_a1x7p"]
 [ext_resource type="Texture2D" uid="uid://b823o1poo7xox" path="res://assets/creator-symbols/Card Animation.png" id="34_xuoue"]
 [ext_resource type="Texture2D" uid="uid://8sustbr2byv5" path="res://assets/creator-symbols/Feather.png" id="36_hrvlh"]
@@ -71,14 +69,6 @@ keycode = 83
 
 [sub_resource type="Shortcut" id="Shortcut_8onra"]
 events = [SubResource("InputEventKey_euu1l")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_52ly7"]
-device = -1
-ctrl_pressed = true
-keycode = 86
-
-[sub_resource type="Shortcut" id="Shortcut_r2qj4"]
-events = [SubResource("InputEventKey_52ly7")]
 
 [node name="CardMaker" type="MarginContainer"]
 anchors_preset = 15
@@ -548,27 +538,6 @@ access = 2
 filters = PackedStringArray("*.png")
 use_native_dialog = true
 
-[node name="CopyButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-disabled = true
-shortcut = SubResource("Shortcut_r2qj4")
-text = "Copy"
-icon = ExtResource("29_v7y8r")
-expand_icon = true
-
-[node name="PasteButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-disabled = true
-shortcut = SubResource("Shortcut_r2qj4")
-text = "Paste"
-icon = ExtResource("28_r3h2h")
-expand_icon = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 position_smoothing_enabled = true
@@ -600,5 +569,3 @@ position_smoothing_enabled = true
 [connection signal="file_selected" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/SaveCardButton/SaveCardDialog" to="." method="_on_save_card_dialog_file_selected"]
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/ExportCardButton" to="." method="_on_export_card_button_pressed"]
 [connection signal="file_selected" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/ExportCardButton/ExportFileDialog" to="." method="_on_export_file_dialog_file_selected"]
-[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/CopyButton" to="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/CopyButton" method="_on_pressed"]
-[connection signal="pressed" from="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/PasteButton" to="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer/PasteButton" method="_on_pressed"]
