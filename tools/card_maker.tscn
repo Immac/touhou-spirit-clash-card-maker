@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dmyhaudej7x8w"]
+[gd_scene load_steps=43 format=3 uid="uid://dmyhaudej7x8w"]
 
 [ext_resource type="PackedScene" uid="uid://doexruhgyiriy" path="res://card/trimmed_card.tscn" id="1_pctpk"]
 [ext_resource type="Script" path="res://tools/card_maker.gd" id="1_qvgku"]
@@ -79,33 +79,6 @@ keycode = 86
 
 [sub_resource type="Shortcut" id="Shortcut_r2qj4"]
 events = [SubResource("InputEventKey_52ly7")]
-
-[sub_resource type="GDScript" id="GDScript_6n4h0"]
-script/source = "extends Button
-
-func _ready() -> void:
-	if OS.has_feature(\"itch\"):
-		visible = true
-		disabled = false
-
-func _on_pressed() -> void:
-	var result = DisplayServer.clipboard_get()
-	JavaScriptBridge.eval(\"alert('%s')\" % result)
-"
-
-[sub_resource type="GDScript" id="GDScript_scgl6"]
-script/source = "extends Button
-
-func _ready() -> void:
-	if OS.has_feature(\"itch\"):
-		visible = true
-		disabled = false
-
-func _on_pressed() -> void:
-	var js = \"var userInput = prompt('Please enter something:'); userInput;\"
-	var result = JavaScriptBridge.eval(js,true)
-	DisplayServer.clipboard_set(result)
-"
 
 [node name="CardMaker" type="MarginContainer"]
 anchors_preset = 15
@@ -584,7 +557,6 @@ shortcut = SubResource("Shortcut_r2qj4")
 text = "Copy"
 icon = ExtResource("29_v7y8r")
 expand_icon = true
-script = SubResource("GDScript_6n4h0")
 
 [node name="PasteButton" type="Button" parent="ScrollContainer/HBoxContainer/MarginContainer/VBoxContainer/Buttons/HBoxContainer"]
 unique_name_in_owner = true
@@ -596,7 +568,6 @@ shortcut = SubResource("Shortcut_r2qj4")
 text = "Paste"
 icon = ExtResource("28_r3h2h")
 expand_icon = true
-script = SubResource("GDScript_scgl6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
