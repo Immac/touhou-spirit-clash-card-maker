@@ -32,7 +32,6 @@ var card_data: CardData
 @onready var ui_skills_editor: MakerSkillEditor = % "Skills Editor"
 @onready var ui_load_card_dialog: FileDialog = %LoadCardDialog
 @onready var ui_save_card_dialog: FileDialog = %SaveCardDialog
-@onready var ui_paste_button: Button = %PasteButton
 @onready var ui_viewer_viewport: Viewport = %ViewerViewport
 @onready var ui_viewer_camera: Camera2D = %ViewerCamera
 @onready var ui_export_file_dialog: FileDialog = %ExportFileDialog
@@ -45,6 +44,14 @@ const USER_DIR = "user://"
 const OS_WEB = "Web"
 const OS_ANDROID = "Android"
 var file_access_web: FileAccessWeb
+
+class CardMaker:
+	var _os:
+		set(new):
+			_os = new if new and not new.is_empty() else OS.get_name()
+	func _init(os:String = "") -> void:
+		_os = os
+		pass
 
 func _ready() -> void:
 
@@ -104,7 +111,7 @@ func sync_ui_to_new_card() -> void:
 		card_data.series_name = ui_series_code.text
 	ui_id_in_series.value += 1
 	ui_rarity_list.select_by_key(card_data.rarity.key)
-	var current_year = Time.get_date_dict_from_system().year
+	var current_year:float = Time.get_date_dict_from_system().year
 	ui_year.value = current_year
 	sync_attributes_and_ui()
 	sync_stats_and_ui()
@@ -179,16 +186,22 @@ func _on_new_card_confirmation_confirmed() -> void:
 	create_new_card()
 	schedule_update()
 
-const ACCEPTED_ART_EXTENSIONS: String = ".jpg,.png,.webp"
+const ALLOWED_IMAGE_FORMATS: String = ".jpg,.png,.webp,.jpeg,.bmp"
 func _on_upload_button_pressed() -> void:
-	if OS.get_name() == "Web":
-		file_access_web.open(ACCEPTED_ART_EXTENSIONS)
+	if OS.get_name() == StaticGlobals.OS_NAMES.WEB:
+		file_access_web.open(ALLOWED_IMAGE_FORMATS)
 		file_access_web.loaded.connect(_on_file_loaded)
 	elif OS.get_name() == StaticGlobals.OS_NAMES.ANDROID:
-		var has_permission:bool
-		has_permission = OS.request_permission("android.permission.READ_EXTERNAL_STORAGE")
-		if not has_permission:
-			OS.alert("The app can't access yout images without the 'Files and Media' permission.")
+		var read_media_permission = "android.permission.READ_MEDIA_IMAGES"
+		var read_storage_permission = "android.permission.READ_EXTERNAL_STORAGE"
+		var granted_permissions = OS.get_granted_permissions()
+		if not read_media_permission:
+			# Specifically request for this permission even if it might not exists in previous Android versions (SDK Version < 33)
+			read_media_permission = OS.request_permission(read_media_permission)
+		# Workaround for `OS.get_version()` returning empty: prioritize `read_media_permission`, fallback to `read_storage_permission`.
+		var has_permissions = read_media_permission in granted_permissions or read_storage_permission in granted_permissions
+		if not has_permissions:
+			OS.alert("Permission required: The app needs access to your images to proceed. For Android 13 and above, the 'Read Media' permission is necessary. If you believe this is a bug, please contact the developer.")
 		else:
 			ui_load_illustration_file_dialog.popup_centered()
 	else:
